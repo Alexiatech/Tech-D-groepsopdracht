@@ -1,6 +1,6 @@
 ## MovieMates
 
-Welcome, this is our assigmenent for my school project called: `project tech`. For this project i'm going to make a application where you can `save (LIKING)` your favorite anime series to your profile. Take a look at my [WIKI]https://github.com/Alexiatech/Tech-D-groepsopdracht/wiki for more information! (written in `Dutch`). 
+Welcome, this is our assigmenent for my school project called: `project tech`. For this project i'm going to make a application where you can `save (LIKING)` your favorite anime series to your profile. Take a look at my [WIKI](https://github.com/Alexiatech/Tech-D-groepsopdracht/wiki) for more information! (written in `Dutch`). 
 
 ## Team TECH-D
 
