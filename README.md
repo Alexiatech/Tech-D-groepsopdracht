@@ -1,18 +1,18 @@
 ## MovieMates
 
-Welcome, this is our assigmenent for my school project called: `project tech`. For this project i'm going to make a application where you can `save (LIKING)` your favorite anime series to your profile. Take a look at my [WIKI](https://github.com/Alexiatech/Tech-D-groepsopdracht/wiki) for more information! (written in `Dutch`). 
+Welcome, this is our assigmenent for our school project called: `project tech`. For this project we're going to make a application where all of our feature's are included in this common application. Take a look our [WIKI](https://github.com/Alexiatech/Tech-D-groepsopdracht/wiki) for more information! (written in `Dutch`). 
 
 ## Team TECH-D
 
-Our team exists of 5 members from the TEC1 class.
+Our team exists of 5 members from the TEC1 class. I would recommend you to read into our personal application's first before you will look at our common applicaiton. You'll be able to find our personal application behind our name's. 
 
-* Alexia feature: Registreren/login
+* Alexia feature: Registreren/login [MY APPLICATION](https://github.com/Alexiatech/Tech23)
 > Managen van de github.
-* Thijmen feature: Liken (opslaan) 
+* Thijmen feature: Liken (opslaan) [MY APPLICATION](https://github.com/MrSmarto/BLOKTECH23)
 > Ondersteunend managen van de github.
-* Youri feature: Filter specifieke films zoeken op het moment
-* Lynn feature: Profiel aanmaken
-* Lars feature: Filteren
+* Youri feature: Filter specifieke films zoeken op het moment [MY APPLICATION](https://github.com/YouriSaen/ProjectTech/)
+* Lynn feature: Profiel aanmaken [MY APPLICATION](https://github.com/lynnwolters/matching-application)
+* Lars feature: Filteren [MY APPLICATION](https://github.com/larsvv99/Project-Tech)
 
 ## ![concept](https://user-images.githubusercontent.com/118122875/224569879-7b376629-fc7b-401a-81b5-9f5e5917521d.png) Het concept
 
