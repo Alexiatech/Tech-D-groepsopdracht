@@ -6,18 +6,18 @@ Welcome, this is our assigmenent for our school project called: `project tech`. 
 
 Our team exists of 5 members from the TEC1 class. I would recommend you to read into our personal application's first before you will look at our common applicaiton. You'll be able to find our personal application behind our name's. 
 
-* Alexia feature: Registreren/login 
+1. Alexia feature: Registreren/login 
 * [APPLICATION: Wish games](https://github.com/Alexiatech/Tech23)
 > Managen van de github.
-* Thijmen feature: Liken (opslaan) 
+2. Thijmen feature: Liken (opslaan) 
 * [APPLICATION: Anime Smarty](https://github.com/MrSmarto/BLOKTECH23)
 > Managen van de github.
-* Youri feature: Filter specifieke films zoeken op het moment 
-* [MY APPLICATION](https://github.com/YouriSaen/ProjectTech/)
-* Lynn feature: Profiel aanmaken 
-* [MY APPLICATION](https://github.com/lynnwolters/matching-application)
-* Lars feature: Filteren 
-* [MY APPLICATION](https://github.com/larsvv99/Project-Tech)
+3. Youri feature: Filter specifieke films zoeken op het moment 
+* [APPLICATION: Kalender](https://github.com/YouriSaen/ProjectTech/)
+4. Lynn feature: Profiel aanmaken 
+* [APPLICATION: Pixeljobs](https://github.com/lynnwolters/matching-application)
+5. Lars feature: Filteren 
+* [APPLICATION: Fooduo](https://github.com/larsvv99/Project-Tech)
 
 ## ![concept](https://user-images.githubusercontent.com/118122875/224569879-7b376629-fc7b-401a-81b5-9f5e5917521d.png) Het concept
 
