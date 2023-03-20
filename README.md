@@ -38,7 +38,8 @@ Before you install the `MovieMates`, make sure to install:
 * Type `node --version` the check if node is installed correctly
 > You'll recieve the what type of version you installed like:`v18.8.0` 
 ### [MongoDB](https://www.mongodb.com/blog)
-* Before you can start Anime Smarty you'll need to create a database with multiple collections. I use [MongoDB](https://www.mongodb.com/blog) to save up the data (information) for this application. Follow the steps underneath, you can also follow this [tutorial](https://www.mongodb.com/docs/atlas/getting-started/):
+`AANPASSEN ZODRA WE EEN DATABASE STRUCTUUR HEBBEN`
+* Before you can start MovieMates you'll need to create a database with multiple collections. I use [MongoDB](https://www.mongodb.com/blog) to save up the data (information) for this application. Follow the steps underneath, you can also follow this [tutorial](https://www.mongodb.com/docs/atlas/getting-started/):
 1. Create a cluster, i would recommend you to use the name cluster0
 2. Create a database, choose your own name
 3. Then you'll create the first collection called: `"DataFilms"`. In this collection we will store the information about the movies that we render in our application. Use the following template to set up your collection:
@@ -69,6 +70,8 @@ MONGO_PASSWORD=yourpassword
 
 ### App-installation:
 
+`AANPASSEN ZODRA WE KLAAR ZIJN`
+
 Clone my respository to your local device:
 
 ```
@@ -91,7 +94,7 @@ http://localhost:1900/
 
 ```
 
-* Anime Smart only works for a mobile screen so make sure you switch to a mobile screens. You'll will be able to do this to open the inspector tool on google chrome by the following code for mac OS: `Option + ⌘ + J`, and the following code for windows: `Shift + CTRL + J on Windows)`.
+* MovieMates only works for a mobile screen so make sure you switch to a mobile screens. You'll will be able to do this to open the inspector tool on google chrome by the following code for mac OS: `Option + ⌘ + J`, and the following code for windows: `Shift + CTRL + J on Windows)`.
 
 ## ![tech](https://user-images.githubusercontent.com/118122875/224570118-38da956b-ec96-4d47-8375-b5f07659883a.png) Technologies
 
@@ -103,7 +106,7 @@ http://localhost:1900/
 
 ## ![licence](https://user-images.githubusercontent.com/118122875/224570185-da93d583-8c14-4eee-bca6-f680ec919fc2.png) License
 
-I'm using a [MIT LICENSE](https://github.com/cmda-bt/pt-course-22-23/blob/main/LICENSE).
+We're using a [MIT LICENSE](https://github.com/cmda-bt/pt-course-22-23/blob/main/LICENSE).
 
 ![anime-boy](https://user-images.githubusercontent.com/118122875/225022156-18510eaa-ec17-457e-8e8a-1bc5418d985c.gif)
 
