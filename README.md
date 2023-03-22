@@ -1,6 +1,8 @@
-## MovieMates
+## MovieMatch
 
 Welcome, this is our assigmenent for our school project called: `project tech`. For this project we're going to make a application where all of our feature's are included in this common application. Take a look our [WIKI](https://github.com/Alexiatech/Tech-D-groepsopdracht/wiki) for more information! (written in `Dutch`). 
+
+MovieMatch is a web application designed to help you discover movies. However, if you're unsure of what to watch, we have a feature that allows you to find movies that match your preferences. By answering a few questions, our algorithm will generate personalized recommendations to help you find movies that fit your mood. 
 
 ## Team TECH-D
 
