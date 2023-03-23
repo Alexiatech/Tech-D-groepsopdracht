@@ -1,0 +1,61 @@
+/*********/
+/* FONTS */
+/*********/
+
+@font-face {
+    font-family: 'Red Hat Display', sans-serif;
+    src: url(../fonts/RedHatDisplay-Regular.woff);
+}
+
+
+
+
+/**************/
+/* CSS RESET */
+/**************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+
+
+
+/*************/
+/* STYLE.CSS */
+/*************/
+
+body {
+    background-color: var(--background-color);
+}
+
+a, button {
+    cursor: pointer;
+}
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+    /* colors */
+    --background-color: #1A1720; /* dit is de achtergrond kleur */
+    --button-color:  #6337C1; /* deze kleur is voor de buttons */
+    --border-color: #898989; /* dit is de kleur voor de borders */
+    --text-color: #FFFFFF; /* dit is de tekst kleur */
+    --secondary-text-color: #B3B3B3; /* dit is d tweede tekst kleur */
+    --input-field-background-color: #0C0C0C; /* dit is de input fields background color */
+    --menu-color: #0C0C0C; /* dit is de menu color */
+
+    /* borders */
+    --input-field-border: solid 0.4em var(--border-color); /* dit is de border voor input fields */
+    --movie-border: solid 0.4em var(--border-color); /* dit is de border voor de movies */
+    --menu-border: solid 0.1em var(--border-color); /* dit is de bordr voor het menu */
+    --selected-border: solid 0.4em var(--button-color); /* dit is de border voor de geselecteerde elementen */
+}
