@@ -195,28 +195,25 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
 /* SECTION 3 - FILMS */
 
 .filminlijst {
-    margin-left: 25px;
-    margin-top: 70px;
+    padding-left: 25px;
+    padding-top: 70px;
+    padding-bottom: 60px;
 }
 
 .filminlijst h2 {
     font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 32px;
+    font-weight: 100;
     color: white;
     margin-left: 0;
 }
-
-
-/* Film List */
+  
 .film-list {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 8px;
-    padding: 0;
+    padding-top: 16px;
     list-style: none;
-}
+  }
   
 /* Film Item */
 .film-item {
@@ -224,53 +221,55 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     margin-right: 8px;
     margin-bottom: 8px;
     position: relative;
-    border-radius: 6px;
-    
-}
+  }
+
+/* Last Film Item */
+.film-item:last-of-type {
+    margin-right: 25px;
+  }
   
-/* Film Image */
-.film-image {
+  /* Film Image */
+  .film-image {
     width: 128px;
     height: 176px;
     display: block;
     border-radius: 4px;
-    border: var(--border-color);
-    
-}
+  }
   
-/* Film Info */
-.film-info {
+  /* Film Info */
+  .film-info {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 8px;
     background-color: white;
-    color: black;
+    color: var(--button-color);
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-}
-
-  /* Last Film Item */
-.film-item:last-of-type {
-    margin-right: 25px;
-}
+  }
   
-/* Film Title */
-.film-title {
+  /* Film Title */
+  .film-title {
     margin-bottom: 4px;
     font-size: 16px;
     font-weight: bold;
-}
+  }
   
-/* Film Release */
-.film-release {
+  /* Film Release */
+  .film-release {
     font-size: 14px;
   }
   
-/* Hover Effect */
-.film-item:hover .film-info {
+/* HOVER EFFECTS */
+
+  /* Film Info Hover */
+  .film-item:hover {
     opacity: 1;
+    transform: translateY(5%);
+    transition: transform 1s ease-in-out, font-size 1s ease-in-out;
+    font-size: 18px;
+    z-index: 10;
   }
   
 /* Hover Effect for Mobile */
@@ -280,5 +279,3 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     }
   }
   
-
-    
