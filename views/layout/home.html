@@ -36,93 +36,58 @@
         </section>
 
         <!-- FILMS -->
-
-        <section>
+        <section class="filminlijst">
             <h2>Nieuwste films</h2>
-            <ul>
-                <li>
-                    <a href="/"">
-                    <h3>Creed</h3>
-                    <img src=" ../public/" alt="">
-                    </a>
+            <ul class="film-list">
+                <li class="film-item">
+                    <img src="/public/uploads/images/films/sport/creed-ii-phone-wallpaper.jpeg" alt="Film 1"
+                        class="film-image">
+                    <figcaption class="film-info">
+                        <h3 class="film-title">Film 1</h3>
+                        <p class="film-release">Release date: 1 januari 2022</p>
+                    </figcaption>
+                </li>
+                <li class="film-item">
+                    <img src="/public/uploads/images/films/cartoon/rick&morty.jpeg" alt="Film 2" class="film-image">
+                    <figcaption class="film-info">
+                        <h3 class="film-title">Film 2</h3>
+                        <p class="film-release">Release date: 15 maart 2022</p>
+                    </figcaption>
+                </li>
+                <li class="film-item">
+                    <img src="/public/uploads/images/films/Horror/the-meg-phone-wallpaper.jpeg" alt="Film 3"
+                        class="film-image">
+                    <figcaption class="film-info">
+                        <h3 class="film-title">Film 3</h3>
+                        <p class="film-release">Release date: 30 april 2022</p>
+                    </figcaption>
+                </li>
+                <li class="film-item">
+                    <img src="/public/uploads/images/films/sport/southpaw-phone-wallpaper.jpeg" alt="Film 4"
+                        class="film-image">
+                    <figcaption class="film-info">
+                        <h3 class="film-title">Film 4</h3>
+                        <p class="film-release">Release date: 12 juli 2022</p>
+                    </figcaption>
+                </li>
+                <li class="film-item">
+                    <img src="/public/uploads/images/films/actie/avengers-endgame-phone-wallpaper.jpeg" alt="Film 5"
+                        class="film-image">
+                    <figcaption class="film-info">
+                        <h3 class="film-title">Film 5</h3>
+                        <p class="film-release">Release date: 21 september 2022</p>
+                    </figcaption>
+                </li>
+                <li class="film-item">
+                    <img src="/public/uploads/images/films/cartoon/frozen-phone-wallpaper.jpeg" alt="Film 6"
+                        class="film-image">
+                    <figcaption class="film-info">
+                        <h3 class="film-title">Film 6</h3>
+                        <p class="film-release">Release date: 5 november 2022</p>
+                    </figcaption>
                 </li>
             </ul>
         </section>
-
-        <!-- FILMS: NIEUWSTE FILMS -->
-        <!-- <section>
-            <h2>Nieuwste films</h2>
-            <ul>
-                <% films.forEach(function(film) { %>
-                <li>
-                    <a href="/detailspagina/<%= film.id %>">
-                        <h3><%= film.title %></h3>
-                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
-        </section> -->
-
-        <!-- FILMS: ACTIE FILMS -->
-        <!-- <section>
-            <h2>Actie films</h2>
-            <ul>
-                <% films.forEach(function(film) { %>
-                <li>
-                    <a href="/detailspagina/<%= film.id %>">
-                        <h3><%= film.title %></h3>
-                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
-        </section> -->
-
-        <!-- FILMS: SPORT FILMS -->
-        <!-- <section>
-            <h2>Sport films</h2>
-            <ul>
-                <% films.forEach(function(film) { %>
-                <li>
-                    <a href="/detailspagina/<%= film.id %>">
-                        <h3><%= film.title %></h3>
-                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
-        </section> -->
-
-        <!-- FILMS: CARTOON FILMS -->
-        <!-- <section>
-            <h2>Cartoon films</h2>
-            <ul>
-                <% films.forEach(function(film) { %>
-                <li>
-                    <a href="/detailspagina/<%= film.id %>">
-                        <h3><%= film.title %></h3>
-                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
-        </section> -->
-
-        <!-- FILMS: HORROR FILMS -->
-        <!-- <section>
-            <h2>Horror films</h2>
-            <ul>
-                <% films.forEach(function(film) { %>
-                <li>
-                    <a href="/detailspagina/<%= film.id %>">
-                        <h3><%= film.title %></h3>
-                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
-        </section> -->
     </main>
 
 </body>
