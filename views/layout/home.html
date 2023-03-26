@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/styles/home.css">
+    <title>MovieMatcher</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section>
+            <h1>MovieMatch</h1>
+            <img src="/public/uploads/images/home/stertransparant.png" alt="opgeslagen films bekijken">
+            <div class="lijn"></div>
+        </section>
+        <section>
+            <!-- Zoekbalk -->
+            <div class="zoek-box">
+                <input class="zoek-invoer" type="text" placeholder="Zoek jouw film...">
+                <button class="zoek-knop"><i class="fas fa-search"></i></button>
+            </div>
+
+            <!-- Welkom gebruiker -->
+            <p><span>Welcome TEC1-D</span></p>
+            <p><span>Pick a movie to watch...</span></p>
+
+            <!-- Moviematch Button -->
+            <a href="/views/layout/movieMatcher.ejs"><button class="moviematchbtn"><span>NO
+                        INSPIRATION?</span><br><span>Try our movie matcher</span></button></a>
+        </section>
+
+        <!-- FILMS -->
+
+        <section>
+            <h2>Nieuwste films</h2>
+            <ul>
+                <li>
+                    <a href="/"">
+                    <h3>Creed</h3>
+                    <img src=" ../public/" alt="">
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- FILMS: NIEUWSTE FILMS -->
+        <!-- <section>
+            <h2>Nieuwste films</h2>
+            <ul>
+                <% films.forEach(function(film) { %>
+                <li>
+                    <a href="/detailspagina/<%= film.id %>">
+                        <h3><%= film.title %></h3>
+                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
+        </section> -->
+
+        <!-- FILMS: ACTIE FILMS -->
+        <!-- <section>
+            <h2>Actie films</h2>
+            <ul>
+                <% films.forEach(function(film) { %>
+                <li>
+                    <a href="/detailspagina/<%= film.id %>">
+                        <h3><%= film.title %></h3>
+                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
+        </section> -->
+
+        <!-- FILMS: SPORT FILMS -->
+        <!-- <section>
+            <h2>Sport films</h2>
+            <ul>
+                <% films.forEach(function(film) { %>
+                <li>
+                    <a href="/detailspagina/<%= film.id %>">
+                        <h3><%= film.title %></h3>
+                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
+        </section> -->
+
+        <!-- FILMS: CARTOON FILMS -->
+        <!-- <section>
+            <h2>Cartoon films</h2>
+            <ul>
+                <% films.forEach(function(film) { %>
+                <li>
+                    <a href="/detailspagina/<%= film.id %>">
+                        <h3><%= film.title %></h3>
+                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
+        </section> -->
+
+        <!-- FILMS: HORROR FILMS -->
+        <!-- <section>
+            <h2>Horror films</h2>
+            <ul>
+                <% films.forEach(function(film) { %>
+                <li>
+                    <a href="/detailspagina/<%= film.id %>">
+                        <h3><%= film.title %></h3>
+                        <img src="../public/upload/images/movies/<%= film.photo %>" alt="<%= film.title %>">
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
+        </section> -->
+    </main>
+
+</body>
+
+</html>

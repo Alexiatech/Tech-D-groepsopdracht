@@ -1,0 +1,195 @@
+/*********/
+/* FONTS */
+/*********/
+
+@font-face {
+    font-family: 'Red Hat Display', sans-serif;
+    src: url(../fonts/RedHatDisplay-Regular.woff);
+}
+
+
+
+
+/**************/
+/* CSS RESET */
+/**************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+
+
+
+/*************/
+/* STYLE.CSS */
+/*************/
+
+body {
+    background-color: var(--background-color);
+}
+
+a, button {
+    cursor: pointer;
+}
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+    /* colors */
+    --background-color: #1A1720; /* dit is de achtergrond kleur */
+    --button-color:  #6337C1; /* deze kleur is voor de buttons */
+    --border-color: #898989; /* dit is de kleur voor de borders */
+    --text-color: #FFFFFF; /* dit is de tekst kleur */
+    --secondary-text-color: #B3B3B3; /* dit is d tweede tekst kleur */
+    --input-field-background-color: #0C0C0C; /* dit is de input fields background color */
+    --menu-color: #0C0C0C; /* dit is de menu color */
+
+    /* borders */
+    --input-field-border: solid 0.4em var(--border-color); /* dit is de border voor input fields */
+    --movie-border: solid 0.4em var(--border-color); /* dit is de border voor de movies */
+    --menu-border: solid 0.1em var(--border-color); /* dit is de bordr voor het menu */
+    --selected-border: solid 0.4em var(--button-color); /* dit is de border voor de geselecteerde elementen */
+}
+
+
+
+
+/* SECTION 1 */
+
+h1 {
+    text-align: center;
+    margin-top:  65px;
+    color: var(--text-color)
+}
+
+.lijn {
+    height: 1px;
+    background: #666666;
+    margin-top: 22px;
+}
+
+section:nth-of-type(1) img {
+    position: absolute;
+    top: 62px;
+    right: 30px;
+    width: 8%;
+}
+
+
+
+
+/* SECTION 2 */
+
+/* Zoekveld */
+
+.zoek-box {
+    margin-top: 32px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 34px;
+    position: relative;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.zoek-invoer {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    padding: 15px 45px 15px 15px;
+    background-color: black;
+    color: white;
+    border-radius: 24px;
+    border: none;
+    transition: all .4s;
+    border: 1px solid black;
+    outline: none;
+}
+
+.zoek-invoer:focus {
+    border: none;
+    outline: none;
+    box-shadow: 0 1px 12px #b8c6db;
+    -moz-box-shadow: 0 1px 12px #b8c6db;
+    -webkit-box-shadow: 0 1px 12px #b8c6db;
+}
+
+.zoek-knop {
+    background-color: transparent;
+    font-size: 18px;
+    padding: 6px 9px;
+    margin-left: -45px;
+    border: none;
+    color: white;
+    transition: all .4s;
+    z-index: 10;
+}
+
+.zoek-knop:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    color: white;
+}
+
+.zoek-knop:focus {
+    outline: none;
+    color: white;
+}
+
+/* Einde zoekveld */
+
+main section:nth-of-type(2) p:nth-of-type(1) span {
+    position: relative;
+
+    margin-left: 24px;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+main section:nth-of-type(2) p:nth-of-type(2) span {
+    position: relative;
+    color: var(--border-color);
+    margin-top: 63.50px;
+    margin-left: 24px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.moviematchbtn {
+    position: relative;
+    margin-left: 24px;
+    border: 1px solid var(--button-color);
+    color: white;
+    width: 328px;
+    height: 56px;
+    top: 31px;
+    background: var(--button-color);
+    border-radius: 6px;
+    padding-top: 0.3em;
+}
+
+.moviematchbtn span:nth-of-type(1) {
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.moviematchbtn span:nth-of-type(2) {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+    
