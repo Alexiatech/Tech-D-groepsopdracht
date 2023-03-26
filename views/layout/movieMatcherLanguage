@@ -20,11 +20,14 @@
         <h1>Movie Matcher Result</h1>
     </header>
 
+    <!-- Main body -->
     <section>
+        <!-- Explanation text -->
         <section>
             <h2>What kind of decade should your movie come from?</h2>
         </section>
 
+        <!-- Language selector -->
         <section>
             <input type="radio" id="english" name="decadePicker" value="english">
             <label for="english">English</label>
@@ -45,6 +48,7 @@
             <label for="swedish">Swedish</label>
         </section>
 
+        <!-- Continue button -->
         <section>
             <button>Continue</button>
         </section>
