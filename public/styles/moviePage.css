@@ -91,40 +91,44 @@ section:nth-of-type(2) img {
     height: 261px;
 }
 
-.rating-stars {
+/* Containerstijl voor beoordelingssterren */
+.beoordelingssterren {
 	display: block;
 	width: 50vmin;
 	padding: 1.75vmin 10vmin 2vmin 3vmin;
 	border-radius: 5vmin;
 	position: relative;
-    margin-top: 27px;
     margin-left: 10px;
+    margin-top: 27px;
 }
 
-.rating-counter {
+/* Stijl voor het beoordelingsaantal */
+.beoordelingsaantal {
 	font-size: 5.5vmin;
-    color: #9aacc6;
-    width: 10vmin;
-    text-align: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    border-radius: 0 5vmin 5vmin 0;
-    line-height: 10vmin;
+	color: white;
+	width: 10vmin;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	border-radius: 0 5vmin 5vmin 0;
+	line-height: 10vmin;
 }
 
-.rating-counter:before {
+/* Standaardinhoud voor het beoordelingsaantal */
+.beoordelingsaantal:before {
 	content: "0";
 	transition: all 0.25s ease 0s;	
 }
 
+/* Verberg invoervelden */
 input { display: none; }
 
+/* Stijl voor sterlabels */
 label {
 	width: 5vmin;
 	height: 5vmin;
-	background: #000b;
 	display: inline-flex;
 	cursor: pointer;
 	margin: 0.5vmin 0.65vmin;
@@ -132,10 +136,12 @@ label {
 	clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
 }
 
-label[for=rs0] {
+/* Verberg label voor bs0 */
+label[for=bs0] {
 	display: none;
 }
 
+/* Stijl voor de achtergrondkleur van de sterren */
 label:before {
 	width: 90%;
 	height: 90%;
@@ -151,87 +157,90 @@ label:before {
 	background-position: 0 0;
 }
 
+/* Hover effect voor de sterren */
 label:hover:before {
 	transition: all 0.25s ease 0s;		
 }
 
+/* Verander de achtergrondpositie van de sterren wanneer deze zijn geselecteerd */
 input:checked + label ~ label:before {
 	background-position: 100% 0;
 	transition: all 0.25s ease 0s;	
 }
 
+/* Verander de achtergrondpositie van de sterren bij hover wanneer deze zijn geselecteerd */
 input:checked + label ~ label:hover:before {
-	background-position: 0% 0
+	background-position: 0% 0;
 }
 
-#rs1:checked ~ .rating-counter:before {
+/* Update het beoordelingsaantal wanneer een ster geselecteerd is */
+#bs1:checked ~ .beoordelingsaantal:before {
 	content: "1";
 }
 
-#rs2:checked ~ .rating-counter:before {
+#bs2:checked ~ .beoordelingsaantal:before {
 	content: "2";
 }
 
-#rs3:checked ~ .rating-counter:before {
+#bs3:checked ~ .beoordelingsaantal:before {
 	content: "3";
 }
 
-#rs4:checked ~ .rating-counter:before {
+#bs4:checked ~ .beoordelingsaantal:before {
 	content: "4";
 }
 
-#rs5:checked ~ .rating-counter:before {
+#bs5:checked ~ .beoordelingsaantal:before {
 	content: "5";
 }
 
-label + input:checked ~ .rating-counter:before {
+/* Verander de kleur van het beoordelingsaantal wanneer een ster geselecteerd is */
+label + input:checked ~ .beoordelingsaantal:before {
 	color: #ffab00 !important;
 	transition: all 0.25s ease 0s;
 }
 
-label:hover ~ .rating-counter:before {
+/* Hover-effect voor beoordelingsaantal */
+label:hover ~ .beoordelingsaantal:before {
 	color: #9aacc6 !important;
 	transition: all 0.5s ease 0s;	
 	animation: pulse 1s ease 0s infinite;
 }
 
+/* Keyframes voor het pulse-effect */
 @keyframes pulse {
 	  50% { font-size: 6.25vmin; }
 }
 
-label[for=rs1]:hover ~ .rating-counter:before {
+/* Update het beoordelingsaantal bij hover op sterlabels */
+label[for=bs1]:hover ~ .beoordelingsaantal:before {
 	content: "1" !important;
 }
 
-label[for=rs2]:hover ~ .rating-counter:before {
+label[for=bs2]:hover ~ .beoordelingsaantal:before {
 	content: "2" !important;
 }
 
-label[for=rs3]:hover ~ .rating-counter:before {
+label[for=bs3]:hover ~ .beoordelingsaantal:before {
 	content: "3" !important;
 }
 
-label[for=rs4]:hover ~ .rating-counter:before {
+label[for=bs4]:hover ~ .beoordelingsaantal:before {
 	content: "4" !important;
 }
 
-label[for=rs5]:hover ~ .rating-counter:before {
+label[for=bs5]:hover ~ .beoordelingsaantal:before {
 	content: "5" !important;
 }
 
-
-input:checked:hover ~ .rating-counter:before {
+/* Verwijder animatie en behoud kleur bij hover op geselecteerde ster */
+input:checked:hover ~ .beoordelingsaantal:before {
 	animation: none !important;
 	color: #ffab00 !important ;
 }
 
-section:nth-of-type(2) h2 {
-    margin-left: 24px;
-    margin-top: 24px;;
-    font-size: 20px;
-    color: white;
-    font-weight: 100;
-}
+
+/* BESCHRIJVING FILMS */
 
 section:nth-of-type(2) p {
     margin-left: 25px;
@@ -244,3 +253,48 @@ section:nth-of-type(2) p {
     font-size: 16px;
 }
 
+section:nth-of-type(2) h2 {
+    margin-left: 24px;
+    margin-top: 24px;;
+    font-size: 20px;
+    color: white;
+    font-weight: 100;
+}
+
+.read-more, .read-less { 
+    display: block;
+    margin-top: 1em;
+    color: var(--button-color);
+    font-weight: bolder;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-left: 16px;
+}
+
+.more-text {
+    display: none;
+}
+
+.show-less-btn {
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+}
+
+
+/* GENRE BUTTONS */
+
+.genre-buttons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.genre-button {
+    
+    margin-top: 15px;
+    margin-left: 24px;
+    padding: 4px 8px;
+    border: 1px solid #898989;
+    background-color: transparent;
+    color: #898989;
+}

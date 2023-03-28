@@ -21,21 +21,39 @@
         </section>
         <section>
             <img src="/public/uploads/images/films/cartoon/rick&morty.jpeg" alt="">
-            <div class="rating-stars">
-                <input type="radio" name="rating" id="rs0" checked><label for="rs0"></label>
-                <input type="radio" name="rating" id="rs1"><label for="rs1"></label>
-                <input type="radio" name="rating" id="rs2"><label for="rs2"></label>
-                <input type="radio" name="rating" id="rs3"><label for="rs3"></label>
-                <input type="radio" name="rating" id="rs4"><label for="rs4"></label>
-                <input type="radio" name="rating" id="rs5"><label for="rs5"></label>
-                <span class="rating-counter"></span>
+            <!-- Begin beoordelingssterren container -->
+            <div class="beoordelingssterren" id="beoordelingsSterren">
+                <input type="radio" name="beoordeling" id="bs0" checked><label for="bs0"></label>
+                <input type="radio" name="beoordeling" id="bs1"><label for="bs1"></label>
+                <input type="radio" name="beoordeling" id="bs2"><label for="bs2"></label>
+                <input type="radio" name="beoordeling" id="bs3"><label for="bs3"></label>
+                <input type="radio" name="beoordeling" id="bs4"><label for="bs4"></label>
+                <input type="radio" name="beoordeling" id="bs5"><label for="bs5"></label>
+                <!-- Beoordelingsaantal weergeven -->
+                <span class="beoordelingsaantal"></span>
             </div>
             <h2>Description</h2>
-            <p>""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <div class="description">
+                <p>Rick and Morty is een populaire animatieserie die de avonturen volgt van de cynische en alcoholische
+                    wetenschapper Rick Sanchez en zijn naïeve en beïnvloedbare kleinzoon Morty Smith.</p>
+                <a href="#" class="read-more">Lees meer</a>
+                <p class="more-text">Samen reizen ze naar verschillende dimensies en alternatieve universums, waar ze
+                    allerlei bizarre wezens en situaties tegenkomen. De serie staat bekend om zijn intelligente humor,
+                    verwijzingen naar popcultuur en surrealistische verhalen, en zijn bereidheid om complexe
+                    filosofische en wetenschappelijke concepten aan te pakken. Ondanks zijn gekke uiterlijk verkent Rick
+                    and Morty vaak diepere thema's zoals familiedynamiek, existentialisme en de aard van de vrije wil.
+                </p>
+                <a href="#" class="read-less" style="display:none;">Lees minder</a>
+                <div class="genre-buttons">
+                    <button class="genre-button">Comedy</button>
+                    <button class="genre-button">Science Fiction</button>
+                </div>
+            </div>
+
 
         </section>
     </main>
-
+    <script src="/public/scripts/moviePage.js"></script>
 </body>
 
 </html>
