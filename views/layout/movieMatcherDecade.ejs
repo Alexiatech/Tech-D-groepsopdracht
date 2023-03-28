@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Matcher</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/styles/movieMatcher.css">
+    <link rel="stylesheet" href="public/styles/styles.css">
     <title>Movie Matcher</title>
 </head>
 <body>
@@ -21,38 +14,37 @@
     </header>
 
     <!-- Main body -->
-    <section>
+    <section class="mainBody">
         <!-- Explanation text -->
-        <section>
-            <h2>What kind of decade should your movie come from?</h2>
+        <section class="explanationText">
+            <h2>2/3 What kind of decade should your movie come from?</h2>
         </section>
 
         <!-- Decade selector -->
         <section>
-            <input type="radio" id="2020-now" name="decadePicker" value="2020-now">
-            <label for="2020-now">2020-now</label>
+            <ul class="columnList">
+            <li><input type="checkbox" id="2020-now" name="decadePicker" value="2020-now">
+            <label for="2020-now">2020-now</label></li>
 
-            <input type="radio" id="2010-2020" name="decadePicker" value="2010-2020">
-            <label for="2010-2020">Romance</label>
+            <li><input type="checkbox" id="2010-2020" name="decadePicker" value="2010-2020">
+            <label for="2010-2020">2010-2020</label></li>
 
-            <input type="radio" id="2010-2020" name="decadePicker" value="2010-2020">
-            <label for="2010-2020">2010-2020</label>
+            <li><input type="checkbox" id="2000-2010" name="decadePicker" value="2000-2010">
+            <label for="2000-2010">2000-2010</label></li>
 
-            <input type="radio" id="2000-2010" name="decadePicker" value="2000-2010">
-            <label for="2000-2010">2000-2010</label>
+            <li><input type="checkbox" id="1990-2000" name="decadePicker" value="1990-2000">
+            <label for="1990-2000">1990-2000</label></li>
 
-            <input type="radio" id="1990-2000" name="decadePicker" value="1990-2000">
-            <label for="1990-2000">1990-2000</label>
+            <li><input type="checkbox" id="1980-1990" name="decadePicker" value="1980-1990">
+            <label for="1980-1990">1980-1990</label></li>
 
-            <input type="radio" id="1980-1990" name="decadePicker" value="1980-1990">
-            <label for="1980-1990">1980-1990</label>
-
-            <input type="radio" id="1970-1980" name="decadePicker" value="1970-1980">
-            <label for="1970-1980">1970-1980</label>
+            <li><input type="checkbox" id="1970-1980" name="decadePicker" value="1970-1980">
+            <label for="1970-1980">1970-1980</label></li>
+            </ul>
         </section>
 
         <!-- Continue button -->
-        <section>
+        <section class="nextButton">
             <button>Continue</button>
         </section>
     </section>
