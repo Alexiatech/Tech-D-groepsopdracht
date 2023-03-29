@@ -1,29 +1,42 @@
-require('dotenv').config({ path: '.env' });
+// Require DEPENDENCIES
+
 const express = require('express');
 const app = express();
-app.use(express.static('static'));
 const { engine } = require('ejs');
+
+
+
+
+//midlewear
+
+// Stel een map "/static" beschikbaar voor statische bestanden
+app.use(express.static('static'));
+
+// Gebruik body-parser middleware om formuliergegevens te parseren
 app.use(express.urlencoded({ extended: true }));
 
+// Laad de data van de .env bestand
+require('dotenv').config({ path: '.env' });
 
-
-
-
-//connectie
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, console.log(`Running on port: ${PORT}`));
-
-
-
-
-
-//ejs
+// Gebruik EJS als de standaard view engine
 app.set('view engine', 'ejs');
 app.set('views', './views/layout');
 
 
 
 
+// Error 404
+
+app.use(function (req, res) {
+  res.locals.title = "Error 404"
+  res.status(404).render('404', {
+    path: 'Error'
+  });
+});
+
+//connectie
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, console.log(`Running on port: ${PORT}`));
 
 //database
 const { MongoClient, ServerApiVersion } = require('mongodb');
