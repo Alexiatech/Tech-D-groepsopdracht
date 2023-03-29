@@ -15,9 +15,6 @@ header{
     color: white;
 }
 
-
-
-
 .explanationText{
     align-self: center;
     width: 60%;
@@ -29,6 +26,9 @@ header{
     font-size:medium;
     font-weight: 100;
 }
+
+
+
 
 /* ROW LIST */
 .rowList{
