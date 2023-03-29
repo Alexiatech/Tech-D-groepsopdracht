@@ -23,7 +23,7 @@ Our team exists of 5 members from the TEC1 class. I would recommend you to read 
 
 ## ![concept](https://user-images.githubusercontent.com/118122875/224569879-7b376629-fc7b-401a-81b5-9f5e5917521d.png) Het concept
 
-`MovieMatch` is een applicatie waar gebruikers gemakkelijk gematched worden aan hun favoriete films. Er is een leuke feature die aan de hand van jouw input, jou koppeld aan de films die het meest bij jouw past. Deze films kan je opslaan in jouw favoriete films lijst.
+`MovieMatch is an application where users are easily matched to their favorite movies. There is a fun feature that, based on your input, matches you with the movies that best fit your preferences. You can save these movies to your favorite movies list.
 
 ## ![install](https://user-images.githubusercontent.com/118122875/224570019-3d6ab194-d3ef-458e-b9b6-d66a5cf39809.png) How to install
 
@@ -114,4 +114,3 @@ We're using a [MIT LICENSE](https://github.com/cmda-bt/pt-course-22-23/blob/main
 
 
 Thijmen test
-Hallo
