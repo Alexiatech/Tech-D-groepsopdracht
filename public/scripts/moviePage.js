@@ -33,19 +33,15 @@ readMoreBtn.addEventListener('click', (e) => {
     e.preventDefault();
     moreText.style.display = 'block';
     readMoreBtn.style.display = 'none';
-    readLessBtn.style.display = 'block'; // Voeg deze regel toe
+    readLessBtn.style.display = 'block'; // 
 });
 
+// Update de 'click' eventlistener voor readLessBtn
 readLessBtn.addEventListener('click', (e) => {
     e.preventDefault();
     moreText.style.display = 'none';
     readMoreBtn.style.display = 'block';
     readLessBtn.style.display = 'none';
-});
-
-showLessBtn.addEventListener('click', () => {
-    moreText.style.display = 'none';
-    readMoreBtn.style.display = 'block';
 });
 
   
