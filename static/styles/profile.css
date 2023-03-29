@@ -1,0 +1,127 @@
+/***************/
+/* PROFILE.CSS */
+/***************/
+
+/* header */
+header {
+    height: 7.5em;
+    background-color: var(--menu-color);
+    display: flex;
+    align-items: center;
+    border-bottom: var(--menu-border);
+    padding: 0 1.5em;
+}
+
+header h1 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+
+
+
+/* nav */
+nav {
+    width: 100%;
+    height: 5.5em;
+    background-color: var(--menu-color);
+    position: fixed;
+    bottom: 0;
+    border-top: var(--menu-border);
+    padding: 0 1.5em;
+}
+
+nav ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a img {
+    width: 1.55em;
+    aspect-ratio: 1/1;
+}
+
+nav ul li .selected {
+    width: .45em;
+    aspect-ratio: 1/1;
+    background-color: var(--button-color);
+    border-radius: 1em;
+    position: absolute;
+    bottom: -.6em;
+}
+
+
+
+
+/* section 1 */
+main section:nth-of-type(1) {
+    background-color: var(--menu-color);
+    height: 19em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 1.5em;
+}
+
+main section:nth-of-type(1) img {
+    height: 10.5em;
+    aspect-ratio: 1/1;
+    opacity: .4;
+    border-radius: .4em;
+    margin-bottom: 1.5em;
+}
+
+main section:nth-of-type(1) a {
+    width: 100%;
+    background-color: var(--button-color);
+    padding: 1em 0;
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: .4em;
+}
+
+
+
+
+/* section 2 */
+main section:nth-of-type(2) {
+    padding: 2em 1.5em;
+    margin-bottom: 5.5em;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main section:nth-of-type(2) h2 {
+    font-size: 1.25em;
+    color: var(--text-color);
+    font-weight: 200;
+    margin-bottom: .4em;
+}
+
+main section:nth-of-type(2) p {
+    font-size: 1em;
+    color: var(--secondary-text-color);
+    font-weight: 200;
+    margin-bottom: 1.4em;
+}
+
+main section:nth-of-type(2) p:last-of-type {
+    margin-bottom: 0em;
+}
