@@ -112,5 +112,3 @@ We're using a [MIT LICENSE](https://github.com/cmda-bt/pt-course-22-23/blob/main
 ![anime-boy](https://user-images.githubusercontent.com/118122875/225022156-18510eaa-ec17-457e-8e8a-1bc5418d985c.gif)
 
 
-
-Thijmen test
