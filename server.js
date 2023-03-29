@@ -3,6 +3,8 @@
 const express = require('express');
 const app = express();
 const { engine } = require('ejs');
+const port = 4000;
+const bodyParser = require('body-parser');
 
 
 
@@ -13,7 +15,7 @@ const { engine } = require('ejs');
 app.use(express.static('static'));
 
 // Gebruik body-parser middleware om formuliergegevens te parseren
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Laad de data van de .env bestand
 require('dotenv').config({ path: '.env' });
@@ -34,6 +36,10 @@ app.use(function (req, res) {
   });
 });
 
+
+
+
+
 //connectie
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
@@ -50,9 +56,6 @@ const client = new MongoClient(
 client.connect()
   .then((res) => console.log('@@-- connection established', res))
   .catch((err) => console.log('@@-- error', err));
-
-
-
 
 
 //routes
