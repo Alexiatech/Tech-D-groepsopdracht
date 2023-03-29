@@ -60,9 +60,9 @@ a, button {
     --selected-border: solid 0.4em var(--button-color); /* dit is de border voor de geselecteerde elementen */
 }
 
-/* ************* */
+/* ***** */
 /* registreren  */
-/* ************ */
+/* **** */
 
 .regIster body {
     display: flex;
@@ -108,7 +108,6 @@ a, button {
   .regIster img:nth-child(4):hover {
     transform: scale(1.1);
   }
-
 .regIster img:nth-child(3) {
     display: flex;
     justify-content: center;
@@ -168,14 +167,22 @@ a, button {
 }
 
 .regIster button {
-    margin: 0;
-}
+    background-color: var(--button-color);
+    margin-top: .5em;
+    margin: 1em;
+    width: 90%;
+    height: 3.5em;
+
+
+    color: var(--text-color);
+    box-shadow: none;
 
 
     font-family: 'Red Hat Display', sans-serif;
     font-weight: bold;
     font-size: 1em;
     border-radius: .3em;
+
     border: none;
     outline: none;
 
@@ -185,7 +192,9 @@ a, button {
 
 
 .regIster button:hover {
-    transition: border-color 0.5s ease;
+    box-shadow: 0px 0px 15px 3px  #3c2177; 
+    border: 2px solid #3c2177; /*deze later even aanpassen naar een andere kleur */
+    
 }
 
 .regIster  p {
@@ -197,17 +206,10 @@ a, button {
 }
 
 .regIster  p > a {
-
-.logIn form > a {
-    margin-top:3em;
+    margin: 1em;
     text-decoration: none;
-    color: var(--text-color);
-    opacity: 50%;
-
-    text-align: center;
-    
-
-}
+    font-weight: bold;
+    color: #8d5ef3;
     
 
 }
@@ -218,11 +220,4 @@ a, button {
 
 .regIster input:focus  {
     background-color: #2f3170;;
-}
-
-
-}
-
-.signIn section p > a:hover {
-    color:white;
 }
