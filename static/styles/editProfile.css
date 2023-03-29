@@ -1,0 +1,151 @@
+/********************/
+/* EDIT-PROFILE.CSS */
+/********************/
+
+/* header */
+header {
+    height: 7.5em;
+    background-color: var(--menu-color);
+    display: flex;
+    align-items: center;
+    border-bottom: var(--menu-border);
+    padding: 0 1.5em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header h1 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+
+
+
+/* nav */
+nav {
+    width: 100%;
+    height: 5.5em;
+    background-color: var(--menu-color);
+    position: fixed;
+    bottom: 0;
+    border-top: var(--menu-border);
+    padding: 0 1.5em;
+}
+
+nav ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a img {
+    width: 1.55em;
+    aspect-ratio: 1/1;
+}
+
+nav ul li .selected {
+    width: .45em;
+    aspect-ratio: 1/1;
+    background-color: var(--button-color);
+    border-radius: 1em;
+    position: absolute;
+    bottom: -.6em;
+}
+
+
+
+
+/* section 1 */
+main section:nth-of-type(1) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 0 1.5em;
+    margin-top: calc(2em + 7.5em);
+}
+
+main section:nth-of-type(1) > img {
+    height: 10.5em;
+    aspect-ratio: 1/1;
+    opacity: .4;
+    border-radius: .4em;
+}
+
+main section:nth-of-type(1) button {
+    background-color: var(--button-color);
+    width: 4em;
+    aspect-ratio: 1/1;
+    border-radius: 7em;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+
+
+
+/* section 2 */
+main section:nth-of-type(2) {
+    padding: 2em 1.5em;
+}
+
+main section:nth-of-type(2) form {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-bottom: 5.5em;
+}
+
+main section:nth-of-type(2) form label {
+    color: var(--text-color);
+    font-size: 1.25em;
+    font-weight: 200;
+    margin-bottom: .8em;
+}
+
+main section:nth-of-type(2) form input {
+    background-color: var(--input-field-background-color);
+    border: var(--input-field-border);
+    border-radius: .4em;
+    height: 3.5em;
+    margin-bottom: 1.4em;
+    padding-left: 1em;
+    color: var(--secondary-text-color);
+}
+
+main section:nth-of-type(2) form button {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: .4em;
+    text-transform: uppercase;
+    padding: 1em 0;
+}
+
+main section:nth-of-type(2) form button:nth-of-type(1) {
+    border: var(--selected-border);
+    background-color: var(--background-color);
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+main section:nth-of-type(2) form button:nth-of-type(2) {
+    background-color: var(--button-color);
+    border: none;
+}
