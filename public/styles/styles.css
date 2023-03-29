@@ -60,125 +60,143 @@ a, button {
     --selected-border: solid 0.4em var(--button-color); /* dit is de border voor de geselecteerde elementen */
 }
 
+/* ************* */
+/* registreren  */
+/* ************ */
 
-/* *********************** */
-/* styling sign in pagina  */
-/* *********************** */
-.signIn  body {
+.regIster body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0;
 }
 
 
-.signIn img {
-    position: relative;
-    width: 100%;
-    height: auto;
-
-}
-
-
-.signIn h1,
-p {
-    position: relative;
-    text-align: center;
+.regIster h1 {
+    font-size: 1.7em;
     color: var(--text-color);
-    font-family: 'Red Hat Display', sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.regIster img:nth-child(1){
+    margin: 1em;
+    transition: 0.3s;
+}
+
+.regIster img:nth-child(1):hover {
+    transform: translateX(-5px);
+    transition: transform 0.3s ease-in-out;
+  }
+
+.regIster img:nth-child(4) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+
+    position:absolute;
+    left: 7em;
+    bottom: 29em;
+
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .regIster img:nth-child(4):hover {
+    transform: scale(1.1);
+  }
+
+.regIster img:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4.5em;
+
+    position: relative;
+    left: 4.5em;
+    top: -3em;
     
 }
 
 
-.signIn h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-    margin-top: 20%;
-}
 
 
-.signIn p {
-    font-size: .9em;
-    padding: 1em;
-
-    opacity: 0.5;
-}
-
-
-
-
-.signIn .logIn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    margin-top: 5em;
-
-
-}
-
-
-.signIn input {
+.regIster input {
     background-color: var(--input-field-border);
-    border-color: var(--border-color);
-    border-radius: 0.4em var(--input-field-border);
-
-    width: 20em;
-    height: 3em;
-    padding: 1em;
-    margin: 1em;
+    border-color: .01em, var(--border-color);
+    border-radius: var(--input-field-border);
 
     box-shadow: none;
 
+    
 
-}
-
-.logIn input {
-    margin-bottom: 10px;
-    width: 90%;
-    border-radius: 0.3em;
-    color: var(--text-color);
-}
-
-.logIn input:focus  {
-    background-color: #2f3170;;
-}
-
-
-.logIn input:nth-child(2){
-    margin-bottom:5em;
-}
-
-.logIn button {
-    background-color: var(--button-color);
     margin-top: .5em;
-    margin: 1em;
+    margin: .7em;
+    padding:.7em;
+
+    
     width: 90%;
     height: 3.5em;
 
-
+    font-size: 1em;
+    border-radius: .3em;
     color: var(--text-color);
-    box-shadow: none;
-    border: none;
-    outline: none;
+
+}
+
+
+.regIster input[type="date"] {
+    color: rgba(184, 182, 182, 0.5);
+}
+
+
+.regIster input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #8d5ef3;
+    padding: .5em;
+    border-radius: 5em;
+
+    
+}
+
+
+
+.regIster input:nth-of-type(4){
+    margin-top: 4em;
+}
+
+.regIster button {
+    margin: 0;
+}
 
 
     font-family: 'Red Hat Display', sans-serif;
     font-weight: bold;
     font-size: 1em;
     border-radius: .3em;
+    border: none;
+    outline: none;
 
     transition: border-color 0.5s ease;
 }
 
-.logIn button:hover {
-    box-shadow: 0px 0px 15px 3px  #3c2177; 
-    border: 2px solid #3c2177; /*deze later even aanpassen naar een andere kleur */
-    
+
+
+.regIster button:hover {
+    transition: border-color 0.5s ease;
 }
 
+.regIster  p {
+    font-size: .6em;
+    margin-top: 5em;
+    text-align: center;
+    margin: 3em;
+
+}
+
+.regIster  p > a {
 
 .logIn form > a {
     margin-top:3em;
@@ -190,18 +208,18 @@ p {
     
 
 }
+    
 
-
-.signIn section p {
-    margin-top: 25em;
 }
 
+.regIster p > a:hover {
+    color:white;
+}
 
-.signIn section p > a {
-    margin: 1em;
-    text-decoration: none;
-    font-weight: bold;
-    color: #8d5ef3;
+.regIster input:focus  {
+    background-color: #2f3170;;
+}
+
 
 }
 
