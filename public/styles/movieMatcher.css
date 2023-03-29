@@ -3,6 +3,9 @@ header{
     text-align: center;
 }
 
+
+
+
 /* MAIN BODY */
 .mainBody{
     display: flex;
@@ -11,6 +14,9 @@ header{
     gap: 5em;
     color: white;
 }
+
+
+
 
 .explanationText{
     align-self: center;
@@ -58,8 +64,10 @@ header{
     border: 3px solid #6337C1;
 }
 
-/* COLUMN LIST */
 
+
+
+/* COLUMN LIST */
 .columnList{
     display: flex;
     flex-direction: column;
@@ -92,6 +100,9 @@ header{
 .columnList li input:checked+label{
     border: 3px solid #6337C1;
 }
+
+
+
 
 /* NEXT BUTTON */
 .nextButton{
