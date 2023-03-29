@@ -41,7 +41,7 @@ app.use(function (req, res) {
 
 
 //connectie
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || port;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
 
 //database
