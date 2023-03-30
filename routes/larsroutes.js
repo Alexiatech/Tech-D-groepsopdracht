@@ -9,6 +9,12 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
   }
 }));
 
-// Voeg hier je andere routes toe
+// Liked pagina route
+router.get('/likes', async (req, res) => {
+  res.render('likedMovies', { title: 'Likes' });
+  const db = client.db('Moviemates').collection('Movies');
+  const zoekKeukens = await db.find({}).toArray();
+  res.render('filter', { layout: 'index', title: 'Filter', data: zoekKeukens });
+});
 
 module.exports = router;

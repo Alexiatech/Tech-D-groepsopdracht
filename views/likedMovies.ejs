@@ -1,14 +1,51 @@
-<section>
-    <form>
-        <fieldset>
-            <input type="checkbox" id="movie1" name="movie1" value="HarryPotter">
-            <label for="movie1"><img src="images/Harrypotter.jpg"></label>
-            <input type="checkbox" id="movie2" name="movie2" value="Avatar">
-            <label for="movie2"><img src="images/Avatar.jpg"></label>
-            <input type="checkbox" id="movie3" name="movie3" value="Mazerunner">
-            <label for="movie3"><img src="images/Mazerunner.jpeg"></label>
-        </fieldset>
-        <input type="submit" value="Delete" class="mainbutton">
+<!DOCTYPE html>
+<html lang="en">
 
-    </form>
-</section>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/liked.css">
+
+    <title>MovieMatcher</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
+                    <div class="selected"></div>
+                </li>
+                <li><a href="#"><img src="/uploads/images/logos_footer/search-gray.svg" alt="search"></a></li>
+                <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
+                <li>
+                    <a href="#"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Movies you liked</h1>
+        <img src="/uploads/images/home/stertransparant.png" alt="opgeslagen films bekijken">
+        <div class="lijn"></div>
+    </section>
+
+    <section>
+        <form>
+            <fieldset>
+                <input type="checkbox" id="movie1" name="movie1" value="HarryPotter">
+                <label for="movie1"><img src="images/Harrypotter.jpg"></label>
+                <input type="checkbox" id="movie2" name="movie2" value="Avatar">
+                <label for="movie2"><img src="images/Avatar.jpg"></label>
+                <input type="checkbox" id="movie3" name="movie3" value="Mazerunner">
+                <label for="movie3"><img src="images/Mazerunner.jpeg"></label>
+            </fieldset>
+            <input type="submit" value="Delete" class="mainbutton">
+
+        </form>
+    </section>
+</body>
+
+</html>
