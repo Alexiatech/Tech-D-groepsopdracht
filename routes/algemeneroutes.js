@@ -9,9 +9,4 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
   }
 }));
 
-// Homepagina
-router.get('/', (req, res) => {
-    res.render('moviePage', { title: 'Homepage' });
-  });
-
 module.exports = router;
