@@ -55,3 +55,8 @@ client.connect()
   .catch((err) => console.log('@@-- error', err));
 
 
+// ALGEMENE ROUTES VOOR DE GEHELE APPLICATIE
+
+router.get('/', (req, res) => {
+  res.render('signup', { title: 'Homepage' });
+});

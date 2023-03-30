@@ -9,11 +9,6 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
   }
 }));
 
-// Routes
-router.get('/', (req, res) => {
-  res.render('signup', { title: 'Homepage' });
-});
-
 // Voeg hier je andere routes toe
 
 module.exports = router;
