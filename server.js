@@ -4,6 +4,7 @@ const app = express();
 const { engine } = require('ejs');
 const port = 4000;
 const bodyParser = require('body-parser');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 
 // Importeer routebestanden
@@ -44,17 +45,13 @@ const PORT = process.env.PORT || port;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
 
 // Database
-const { MongoClient, ServerApiVersion } = require('mongodb');
+
 const uri = process.env.DB_CONNECTION_STRING;
-
-const client = new MongoClient(
-  uri,
-  { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
-);
-
+console.log('URI:', uri);
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  
 client.connect()
-  .then((res) => console.log('@@-- connection established', res))
-  .catch((err) => console.log('@@-- error', err));
-
+.then((res) => console.log('@@-- connection established', res))
+.catch((err) => console.log('@@-- error', err));
 
 
