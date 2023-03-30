@@ -2,8 +2,9 @@
 const express = require('express');
 const app = express();
 const { engine } = require('ejs');
-const port = 4000;
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const port = 4000;
 
 
 // Importeer routebestanden
@@ -18,6 +19,12 @@ const algemeneroutes = require('./routes/algemeneroutes');
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
 require('dotenv').config({ path: '.env' });
+app.use(session({
+  secret: 'your secret',
+  resave: false,
+  saveUninitialized: true
+}));
+
 
 // Gebruik EJS als de standaard view engine
 app.set('view engine', 'ejs');
@@ -55,6 +62,3 @@ const client = new MongoClient(
 client.connect()
   .then((res) => console.log('@@-- connection established', res))
   .catch((err) => console.log('@@-- error', err));
-
-
-

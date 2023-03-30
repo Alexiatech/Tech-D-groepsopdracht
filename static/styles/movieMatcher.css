@@ -1,6 +1,19 @@
+/* HEADER */
 header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    border-bottom: 1px solid #fff;
+}
+
+.headerH1 {
     color: white;
-    text-align: center;
+    order: 1;
+}
+
+header img{
+    order: 0;
 }
 
 
@@ -149,6 +162,7 @@ nav ul li .selected {
 .nextButton{
     display: flex;
     align-self: center;
+    align-items: center;
     justify-content: center;
     background-color: #6337C1;
     color: #fff;
@@ -156,6 +170,8 @@ nav ul li .selected {
     height: 3em;
     border-radius: 0.5em;
     margin: auto;
+
+    text-decoration: none;
 
     cursor: pointer;
 }
@@ -168,5 +184,4 @@ nav ul li .selected {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
-    text-transform: uppercase;
 }

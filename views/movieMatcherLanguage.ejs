@@ -10,8 +10,9 @@
 </head>
 <body>
     <header>
-        <h1>Movie Matcher Result</h1>
-    </header>
+        <h1 class="headerH1">MovieMatcher</h1>
+        <img src="/uploads/images/moviePage/pijlwit.png" alt="Terug knop">
+</header>
 
     <nav>
         <ul>
@@ -35,6 +36,7 @@
 
         <!-- Language selector -->
         <section>
+            <form method="POST" action="/submit?from=language">
             <ul class="columnList">
             <li><input type="checkbox" id="english" name="languagePicker" value="english">
             <label for="english">English</label></li>
@@ -58,8 +60,9 @@
 
         <!-- Continue button -->
         <section class="nextButton">
-            <button>Continue</button>
+            <button type="submit">Continue</button>
         </section>
+    </form>
     </section>
 
     <footer></footer>
