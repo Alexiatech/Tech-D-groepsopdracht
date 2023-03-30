@@ -12,6 +12,7 @@ const larsRoutes = require('./routes/larsroutes');
 const lynnRoutes = require('./routes/lynnroutes');
 const thijmenRoutes = require('./routes/thijmenroutes');
 const youriRoutes = require('./routes/youriroutes');
+const algemeneroutes = require('./routes/algemeneroutes');
 
 // Middleware
 app.use(express.static('static'));
@@ -28,6 +29,7 @@ app.use(larsRoutes);
 app.use(lynnRoutes);
 app.use(thijmenRoutes);
 app.use(youriRoutes);
+app.use(algemeneroutes);
 
 // Error 404
 app.use(function (req, res) {
@@ -55,8 +57,4 @@ client.connect()
   .catch((err) => console.log('@@-- error', err));
 
 
-// ALGEMENE ROUTES VOOR DE GEHELE APPLICATIE
 
-router.get('/', (req, res) => {
-  res.render('signup', { title: 'Homepage' });
-});
