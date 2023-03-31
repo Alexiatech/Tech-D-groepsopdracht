@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/styles/movieMatcher.css">
-        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="/static/styles/movieMatcher.css">
+        <link rel="stylesheet" href="/static/styles/styles.css">
         <title>Movie Matcher</title>
     </head>
 <body>
@@ -36,9 +36,15 @@
 
         <!-- List of movies -->
         <section>
-                <section>
-                    <h2>knhkbjhbhjbj</h2>
-                </section>
+            <ul class="rowList">
+                    <% movies.forEach(function(movie) { %>
+                        <li>
+                            <div class="matchedMovie">
+                                <p><%= movie.title %></p>
+                            </div>
+                        </li>
+                      <% }); %>
+            </ul>
         </section>
 
         <!-- Home button -->

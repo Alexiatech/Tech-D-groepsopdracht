@@ -91,6 +91,7 @@ nav ul li .selected {
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
+    overflow-x: scroll;
     width: 100%;
     gap: 2em;
 }
@@ -148,11 +149,31 @@ nav ul li .selected {
     margin: auto;
     align-self: center;
     cursor: pointer;
-    
 }
 
 .columnList li input:checked+label{
     border: 3px solid #6337C1;
+}
+
+
+
+
+/* MATCHED MOVIEs */
+.matchedMovie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    background-color: #0C0C0C;
+    color: #fff;
+    height: 15em;
+    overflow-y: scroll;
+    width: 10em;
+    border-radius: 0.5em;
+    margin: auto;
+    align-self: center;
+    cursor: pointer;
 }
 
 
