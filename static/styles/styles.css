@@ -54,7 +54,7 @@ a, button {
     --menu-color: #0C0C0C; /* dit is de menu color */
 
     /* borders */
-    --input-field-border: solid 0.4em var(--border-color); /* dit is de border voor input fields */
+    --input-field-border: solid 0.1em var(--border-color); /* dit is de border voor input fields */
     --movie-border: solid 0.4em var(--border-color); /* dit is de border voor de movies */
     --menu-border: solid 0.1em var(--border-color); /* dit is de bordr voor het menu */
     --selected-border: solid 0.4em var(--button-color); /* dit is de border voor de geselecteerde elementen */
