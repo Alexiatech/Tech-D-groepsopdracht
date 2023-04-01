@@ -33,14 +33,16 @@
     </section>
 
     <section>
-        <form>
+        <form method="POST" action="/deleteMovie">
             <fieldset>
-                <input type="checkbox" id="movie1" name="movie1" value="HarryPotter">
-                <label for="movie1"><img src="images/Harrypotter.jpg"></label>
-                <input type="checkbox" id="movie2" name="movie2" value="Avatar">
-                <label for="movie2"><img src="images/Avatar.jpg"></label>
-                <input type="checkbox" id="movie3" name="movie3" value="Mazerunner">
-                <label for="movie3"><img src="images/Mazerunner.jpeg"></label>
+                <% data.forEach(function(likedMovies) { %>
+                    <input type="checkbox" id="<%= likedMovies._id%>" name="movie" value="<%= likedMovies.Title %>">
+                    <label for="<%= likedMovies._id %>"><img src="/uploads/images/films/<%= likedMovies.Imgurl %>">
+                        <h4>
+                            <%= likedMovies.Title %>
+                        </h4>
+                    </label>
+                    <% }); %>
             </fieldset>
             <input type="submit" value="Delete" class="mainbutton">
 
