@@ -129,6 +129,17 @@ main section:nth-of-type(2) form input {
     color: var(--secondary-text-color);
 }
 
+.location-text label input {
+    width: 100%;
+}
+
+#map {
+    margin: 1em 0;
+    border-radius: 1em;
+    width: 100%;
+    height: 14em;
+}
+
 main section:nth-of-type(2) form button {
     color: var(--text-color);
     font-weight: 600;

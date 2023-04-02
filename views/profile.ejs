@@ -67,6 +67,15 @@
                 <p> No age </p>
             <% } %>  
 
+            <h2>City</h2>
+            <% if (profile.locationName) { %>
+                <p> <%= profile.locationName %> </p>
+            <% } else if (profile.city) { %>  
+                <p> <%= profile.city %> </p>
+            <% } else { %>  
+                <p> No location </p>
+            <% } %>
+
             <h2>Email</h2>
             <% if (profile.email) { %>
                 <p> <%= profile.email %> </p>

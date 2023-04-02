@@ -10,7 +10,11 @@
 
     <title>Edit profile</title>
 
+    <script defer src="/scripts/locationApi.js"></script>
     <script defer src="/scripts/saveButton.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,6 +62,18 @@
 
                 <label>Date of birth *</label>
                 <input type="date" name="dateOfBirth" value="<%= profile.dateOfBirth %>" class="input-value" pattern="\d+" title="Only numbers allowed" required>
+
+                <label>City *</label>
+                <input placeholder="Fill in..." type="text" name="city" value="<%= profile.city %>" class="input-value" pattern="[A-Za-z]+" title="Only letters allowed" required>
+
+                <div class="location" style="height: 0;">
+                    <div class="location-text">
+                        <label style="display: none;">Current location (change if you live somewhere else) *
+                        <input type="text" name="locationName" id="locationName" value=" <%= profile.locationName %> ">
+                        </label>
+                    </div>
+                    <div id="map"></div>
+                </div>
 
                 <label>Email *</label>
                 <input placeholder="Fill in..." type="email" name="email" value="<%= profile.email %>" class="input-value" required>

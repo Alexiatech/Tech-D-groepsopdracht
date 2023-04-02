@@ -23,10 +23,13 @@ router.post('/profile', async (req, res) => {
 		firstName, 
 		lastName,
 		dateOfBirth, 
+		city,
 		email, 
 		phoneNumber, 
 		password
     } = req.body;  
+
+	const locationName = req.body.locationName || '' 
 
 	const collection = client.db('Moviemates').collection('Users');
 
@@ -35,6 +38,8 @@ router.post('/profile', async (req, res) => {
 			firstName: firstName, 
 			lastName: lastName,
 			dateOfBirth: dateOfBirth, 
+			city: city,
+			locationName, locationName,
 			email: email, 
 			phoneNumber: phoneNumber, 
 			password: password
