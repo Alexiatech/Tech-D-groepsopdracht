@@ -4,8 +4,12 @@ const router = express.Router();
 const path = require('path');
 const {start} = require('repl');
 
+const session = require('express-session');
 
-const bcrypt = require ('bcrypt');
+
+// const bcrypt = require ('bcrypt');
+
+
 
 
 
@@ -15,6 +19,14 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
     res.setHeader('Content-Type', 'text/css');
   }
 }));
+
+
+router.use(session({
+  secret: 'gwzauj27y36478i3uejfjeh73ye', // dit moet een lange en willekeurige string zijn
+  resave: false,
+  saveUninitialized: true
+}));
+
 
 // Hier komen je routes
 const moviesUser = client.db('Moviemates').collection('Users');
@@ -27,6 +39,9 @@ router.get('/register', (req, res) => {
   res.render('register', { title: 'register'});
 });
 
+router.get('/home', (req, res) => {
+  res.render('home', { title: 'Homepage'});
+});
 
 
 // registreren voor de website
@@ -41,11 +56,11 @@ router.post('/submit', async (req, res) => {
 
       console.log(name, email, password, birthday);
       
-      const hashedPassword = await bcrypt.hash(password, 10);
+      // const hashedPassword = await bcrypt.hash(password, 10);
 
         const userdata = {
           name: name,
-          pwd: hashedPassword,
+          pwd: password,
           email: email,
           birthday: birthday,
         }
@@ -59,14 +74,31 @@ router.post('/submit', async (req, res) => {
       
     });
 
+    // deze werkt nog niet 
+
 
     // express session aanmelden 
-
-
-
-
-
-
+    router.post('/login', async (req, res) => {
+      const emailSignin = req.body.emailsign;
+      const passwordSignin = req.body.passwordsign;
+      console.log("hello")
+    
+      const user = await moviesUser.findOne({ email: emailSignin });
+    
+      if (!user) {
+        return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+      }
+    
+      const isMatch = (user.pwd === passwordSignin);
+    
+      if (!isMatch) {
+        return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+      }
+    
+      req.session.user = user;
+    
+      res.redirect('/home');
+    });
 
 
 
