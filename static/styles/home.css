@@ -237,11 +237,33 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     line-height: 24px;
 }
 
-/* SECTION 3 - FILMS */
+
+/* SECTION 3 opgeslagenfilms */
+
+.no-movies-image {
+    width: 93%;
+    margin-right: 24px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+  }
+
+.opgeslagenfilms {
+    padding-left: 25px;
+    padding-top: 70px;
+}
+
+.opgeslagenfilms h2 {
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    margin-left: 0;
+}
+
+/* SECTION 4 - FILMS */
 
 .filminlijst {
     padding-left: 25px;
-    padding-top: 70px;
     padding-bottom: 60px;
     margin-bottom: 5em;
 }
