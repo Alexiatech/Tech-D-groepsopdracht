@@ -10,6 +10,8 @@
 
     <title>Edit profile</title>
 
+    <script defer src="/scripts/saveButton.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -22,7 +24,7 @@
 <body>
 
     <header>
-        <a href="#"><img src="/styles/img/go-back.svg" alt="go-back"></a>
+        <a href="/profile"><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
         <h1>Edit profile</h1>
     </header>
 
@@ -41,30 +43,33 @@
     <main>
 
         <section>
-            <img src="/styles/img/profile-picture.jpg" alt="profile-picture">
-            <button href="#"><img src="/styles/img/photo-library.svg" alt="photo-library"></button>
+            <img src="/uploads/images/profilePage/profile-picture.jpg" alt="profile-picture">
+            <button href="#"><img src="/uploads/images/profilePage/photo-library.svg" alt="photo-library"></button>
         </section>
 
         <section>
-            <form>
+            <form action="/profile" method="POST">
 
-                <label>Name</label>
-                <input placeholder="Fill in..." type="text">
+                <label>First name *</label>
+                <input placeholder="Fill in..." type="text" name="firstName" value="<%= profile.firstName %>" class="input-value" pattern="[A-Za-z]+" title="Only letters allowed" required>
 
-                <label>Date of birth</label>
-                <input type="date">
+                <label>Last name *</label>
+                <input placeholder="Fill in..." type="text" name="lastName" value="<%= profile.lastName %>" class="input-value" pattern="[A-Za-z]+" title="Only letters allowed" required>
 
-                <label>Email</label>
-                <input placeholder="Fill in..." type="email">
+                <label>Date of birth *</label>
+                <input type="date" name="dateOfBirth" value="<%= profile.dateOfBirth %>" class="input-value" pattern="\d+" title="Only numbers allowed" required>
 
-                <label>Phone number</label>
-                <input placeholder="Fill in..." type="tel">
+                <label>Email *</label>
+                <input placeholder="Fill in..." type="email" name="email" value="<%= profile.email %>" class="input-value" required>
 
-                <label>Password</label>
-                <input placeholder="Fill in..." type="password">
+                <label>Phone number *</label>
+                <input placeholder="Fill in..." type="tel" name="phoneNumber" value="<%= profile.phoneNumber %>" class="input-value" required>
+
+                <label>Password *</label>
+                <input placeholder="Fill in..." type="password" name="password" value="<%= profile.password %>" class="input-value" required>
                 
                 <button>Change Password</button>
-                <button type="submit">Save Changes</button>
+                <button type="submit" id="save-button">Save Changes</button>
 
             </form>
         </section>
