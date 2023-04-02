@@ -68,6 +68,9 @@ router.post('/submit', async (req, res) => {
         console.log(userdata);
         await moviesUser.insertOne(userdata);
 
+         // Maak sessie aan voor de gebruiker bij het registreren
+        req.session.user = userdata;
+
         // redirect the user to the confirmation page
         res.redirect('/signup');
 
@@ -81,7 +84,7 @@ router.post('/submit', async (req, res) => {
     router.post('/login', async (req, res) => {
       const emailSignin = req.body.emailsign;
       const passwordSignin = req.body.passwordsign;
-      console.log("hello")
+      console.log(moviesUser)
     
       const user = await moviesUser.findOne({ email: emailSignin });
     
