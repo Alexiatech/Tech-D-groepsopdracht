@@ -265,7 +265,7 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
 .filminlijst {
     padding-left: 25px;
     padding-bottom: 60px;
-    margin-bottom: 5em;
+    margin-bottom: 3em;
 }
 
 .filminlijst h2 {
@@ -281,6 +281,7 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     overflow-x: auto;
     padding-top: 16px;
     list-style: none;
+    margin-bottom: 32px;
   }
   
 /* Film Item */
@@ -337,7 +338,8 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     transform: translateY(5%);
     transition: transform 1s ease-in-out, font-size 1s ease-in-out;
     font-size: 18px;
-    z-index: 10;
+    border: single solid 23px white;
+    
   }
   
 /* Hover Effect for Mobile */

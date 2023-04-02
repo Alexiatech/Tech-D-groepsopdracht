@@ -1,11 +1,18 @@
+//** BENODIGDE DEPENDENCIES **/
+
+// Laad de express- en mongodb-modules
 const express = require('express');
 const { ObjectId } = require('mongodb');
+// Creëer een router-object
 const router = express.Router();
+// Laad de 'path'-module om met bestandspaden te werken
 const path = require('path');
+// Importeer de client uit de server-module
 const { client } = require('../server');
-// Laat node-fetch inladen
+// Laad de node-fetch-module in een variabele
 let fetch;
 
+// Importeer de node-fetch-module als deze nog niet is geïmporteerd
 async function getFetch() {
   if (!fetch) {
     fetch = (await import('node-fetch')).default;
@@ -15,56 +22,75 @@ async function getFetch() {
 
 
 
-// Middleware om CSS-bestanden te serveren met het juiste MIME-type
+//** MIDDLEWARE OM CSS BESTENDEN TE LATEN ZIEN **//
+
+// Gebruik de router om statische bestanden te serveren vanuit de opgegeven map
 router.use('/static/styles', express.static(path.join(__dirname, '../static/styles'), {
+  // Stel de headers in voor het serveren van de statische bestanden
   setHeaders: (res) => {
-    res.setHeader('Content-Type', 'text/css');
+  // Stel het 'Content-Type'-header in op 'text/css'
+  res.setHeader('Content-Type', 'text/css');
   }
 }));
 
-// Functie om films op te halen op basis van genre
+//**  Functie om films op te halen op basis van genre **//
+
+// Definieer een asynchrone functie 'getMoviesByGenre' die een genre als parameter accepteert
 async function getMoviesByGenre(genre) {
   try {
+    // Probeer verbinding te maken met de database-client
     await client.connect();
+    // Verkrijg de 'Movies'-collectie uit de 'Moviemates'-database
     const collection = client.db("Moviemates").collection("Movies");
+    // Zoek naar films in de collectie waar het 'Genre' overeenkomt met het gegeven genre en zet het resultaat om naar een array
     const movies = await collection.find({ Genre: genre }).toArray();
+    // Geef de array met gevonden films terug
     return movies;
   } catch (error) {
+    // Als er een fout optreedt tijdens het ophalen van de films, log dan de fout in de console
     console.error("Error while fetching movies: ", error);
-  } finally {
- 
-  }
+  } 
 }
 
-// HOME ROUTE
+//** HOME.EJS ROUTES **/
 
 // Homepagina
+
+// Definieer een router.get() methode die luistert naar GET-verzoeken op het root-pad ('/')
 router.get('/', async (req, res) => {
   try {
+    // Roep de 'getMoviesByGenre' functie aan voor elk genre en sla de resultaten op in constante variabelen
     const actionMovies = await getMoviesByGenre("Action");
     const cartoonMovies = await getMoviesByGenre("Cartoon");
     const horrorMovies = await getMoviesByGenre("Horror");
     const sportMovies = await getMoviesByGenre("Sport");
 
-    // Haal opgeslagen films op met behulp van de /saved-movies route
+    // Verkrijg de fetch instantie met behulp van de 'getFetch' functie
     const fetchInstance = await getFetch();
+    // Voer een GET-verzoek uit naar de '/saved-movies' endpoint en sla het resultaat op in 'savedMoviesResponse'
     const savedMoviesResponse = await fetchInstance('http://localhost:4000/saved-movies');
+    // Converteer het antwoord naar JSON en sla het op in 'savedMovies'
     const savedMovies = await savedMoviesResponse.json();
 
+    // Rendert de 'home' view met de opgegeven gegevens
     res.render('home', {
-      title: 'Homepage',
-      savedMovies: savedMovies,
-      actionMovies,
-      cartoonMovies,
-      horrorMovies,
-      sportMovies
+      title: 'Homepage', // Geef de titel door aan de view
+      savedMovies: savedMovies, // Geef de opgeslagen films door aan de view
+      actionMovies, // Geef de actiefilms door aan de view
+      cartoonMovies, // Geef de tekenfilms door aan de view
+      horrorMovies, // Geef de horrorfilms door aan de view
+      sportMovies // Geef de sportfilms door aan de view
     });
   } catch (error) {
+    // Als er een fout optreedt tijdens het renderen van de homepagina, log dan de fout in de console
     console.error("Error while rendering home: ", error);
   }
 });
 
-// MoviePage route
+
+//** MOVIEPAGE.EJS ROUTE **/
+
+
 router.get('/movie/:id', async (req, res) => {
   try {
     const collection = client.db("Moviemates").collection("Movies");
