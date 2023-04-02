@@ -7,7 +7,7 @@ const {start} = require('repl');
 const session = require('express-session');
 
 
-// const bcrypt = require ('bcrypt');
+const bcrypt = require ('bcrypt');
 
 
 
@@ -56,11 +56,11 @@ router.post('/submit', async (req, res) => {
 
       console.log(name, email, password, birthday);
       
-      // const hashedPassword = await bcrypt.hash(password, 10);
+      const hashedPassword = await bcrypt.hash(password, 10);
 
         const userdata = {
           name: name,
-          pwd: password,
+          pwd: hashedPassword,
           email: email,
           birthday: birthday,
         }
@@ -92,7 +92,7 @@ router.post('/submit', async (req, res) => {
         return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
       }
     
-      const isMatch = (user.pwd === passwordSignin);
+      const isMatch = await bcrypt.compare(passwordSignin, user.pwd);
     
       if (!isMatch) {
         return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
@@ -102,6 +102,7 @@ router.post('/submit', async (req, res) => {
     
       res.redirect('/home');
     });
+    
 
 
 
