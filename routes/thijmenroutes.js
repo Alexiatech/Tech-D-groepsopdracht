@@ -88,19 +88,24 @@ router.get('/', async (req, res) => {
 });
 
 
-//** MOVIEPAGE.EJS ROUTE **/
+//** MOVIEPAGE ROUTE **/
 
-
+// Definieer een GET-route voor '/movie/:id', waarbij ':id' een route-parameter is die het ID van de film vertegenwoordigt
 router.get('/movie/:id', async (req, res) => {
   try {
+    // Verkrijg de 'Movies'-collectie uit de 'Moviemates'-database
     const collection = client.db("Moviemates").collection("Movies");
+    // Zoek naar de film in de collectie met een overeenkomend '_id'-veld en zet het ObjectId van de route-parameter om naar een ObjectId type
     const movie = await collection.findOne({ _id: new ObjectId(req.params.id) });
-    
+
+    // Render de 'moviePage' view met de gevonden film en stel de titel in op de filmtitel
     res.render('moviePage', { title: movie.Title, movie });
   } catch (error) {
+    // Als er een fout optreedt tijdens het renderen van de moviePage, log dan de fout in de console
     console.error("Error while rendering moviePage: ", error);
   }
 });
+
 
 // Route om films op te slaan in 'savedMovies'
 router.post('/save-movie/:id', async (req, res) => {
