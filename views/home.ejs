@@ -11,8 +11,10 @@
 
 <body>
     <header>
+        <!-- Begin van de navigatiebalk -->
         <nav>
             <ul>
+                <!-- Navigatie menu-items met bijbehorende afbeeldingen -->
                 <li><a href="#"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
                     <div class="selected"></div>
                 </li>
@@ -32,8 +34,11 @@
         </section>
         <section>
             <!-- Zoekbalk -->
+            <!-- Begin van de zoekbalk -->
             <div class="zoek-box">
+                <!-- Een invoerveld voor het zoeken naar films -->
                 <input class="zoek-invoer" type="text" placeholder="Zoek jouw film...">
+                <!-- Een knop om de zoekactie te starten -->
                 <button class="zoek-knop"><i class="fas fa-search"></i></button>
             </div>
 
@@ -47,24 +52,29 @@
         </section>
 
         <!-- Opgeslagen films -->
+        <!-- Deze sectie toont de opgeslagen films -->
         <section class="opgeslagenfilms">
             <h2>Movies you liked</h2>
+            <!-- Deze ongeordende lijst bevat de filmitems -->
             <ul class="film-list">
-                <% if (savedMovies.length === 0) { %>
                 <!-- Controleer of savedMovies leeg is -->
+                <% if (savedMovies.length === 0) { %>
                 <li>
+                    <!-- Toon de afbeelding als er geen opgeslagen films zijn -->
                     <img src="/uploads/images/addmovies.jpg" alt="No movies added yet" class="no-movies-image">
-                    <!-- Toon de afbeelding -->
                 </li>
                 <% } else { %>
                 <% savedMovies.forEach((savedMovie) => { %>
+                <!-- Elk filmitem heeft de klasse 'film-item' -->
                 <li class="film-item">
                     <a href="/movie/<%= savedMovie._id %>">
+                        <!-- Toon de filmafbeelding met de klasse 'film-image' -->
                         <img src="/uploads/images/films/<%= savedMovie.Imgurl %>" alt="<%= savedMovie.Title %>"
                             class="film-image">
+                        <!-- De klasse 'film-info' bevat de filmtitel en releasedatum -->
                         <figcaption class="film-info">
+                            <!-- Toon de filmtitel met de klasse 'film-title' -->
                             <h3 class="film-title"><%= savedMovie.Title %></h3>
-                            <p class="film-release">Release date: <%= savedMovie.ReleaseDate %></p>
                         </figcaption>
                     </a>
                 </li>
@@ -73,21 +83,26 @@
             </ul>
         </section>
 
-
         <!-- FILMS -->
         <section class="filminlijst">
+            <!-- Deze sectie toont de films per genre -->
             <% ['Action', 'Cartoon', 'Horror', 'Sport'].forEach((genre, index) => { %>
             <h2><%= genre %> movies</h2>
             <ul class="film-list">
+                <!-- Deze ongeordende lijst bevat de filmitems per genre -->
                 <% const movies = [actionMovies, cartoonMovies, horrorMovies, sportMovies][index]; %>
                 <% movies.forEach((movie) => { %>
+                <!-- Elk filmitem heeft de klasse 'film-item' -->
                 <li class="film-item">
+
                     <a href="/movie/<%= movie._id %>">
+                        <!-- Toon de filmafbeelding met de klasse 'film-image' -->
                         <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>"
                             class="film-image">
+                        <!-- De klasse 'film-info' bevat de filmtitel -->
                         <figcaption class="film-info">
+                            <!-- Toon de filmtitel met de klasse 'film-title' -->
                             <h3 class="film-title"><%= movie.Title %></h3>
-                            <p class="film-release">Release date: <%= movie.ReleaseDate %></p>
                         </figcaption>
                     </a>
                 </li>
@@ -97,10 +112,6 @@
         </section>
     </main>
     <script src="/scripts/savedMovies.js"></script>
-</body>
-
-</html>
-
 </body>
 
 </html>

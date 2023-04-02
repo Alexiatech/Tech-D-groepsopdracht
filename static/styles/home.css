@@ -290,6 +290,7 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     margin-right: 8px;
     margin-bottom: 8px;
     position: relative;
+    text-align: center;
   }
 
 /* Last Film Item */
@@ -338,7 +339,7 @@ main section:nth-of-type(2) p:nth-of-type(2) span {
     transform: translateY(5%);
     transition: transform 1s ease-in-out, font-size 1s ease-in-out;
     font-size: 18px;
-    border: single solid 23px white;
+    text-align: center;
     
   }
   

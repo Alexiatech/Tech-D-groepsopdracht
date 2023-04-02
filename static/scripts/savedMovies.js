@@ -1,4 +1,5 @@
-// Definieer een asynchrone functie om opgeslagen films op te halen
+//** Definieer een asynchrone functie om opgeslagen films op te halen **//
+
 async function fetchSavedMovies() {
     try {
       // Verzoek om opgeslagen films te ontvangen via een API-endpoint
@@ -13,7 +14,11 @@ async function fetchSavedMovies() {
     }
 }
 
-// Definieer een functie om de opgeslagen films weer te geven op de webpagina
+
+
+
+//**  Definieer een functie om de opgeslagen films weer te geven op de webpagina **/
+
 function displaySavedMovies(savedMovies) {
     // Verkrijg de opgeslagen films lijst uit de DOM
     const savedMoviesList = document.getElementById('saved-movies-list');
@@ -42,5 +47,8 @@ function displaySavedMovies(savedMovies) {
     }
 }
 
-// Roep de fetchSavedMovies-functie aan om de lijst met opgeslagen films te vullen bij het laden van de pagina
+
+
+
+//** Roep de fetchSavedMovies-functie aan om de lijst met opgeslagen films te vullen bij het laden van de pagina **/
 fetchSavedMovies();
