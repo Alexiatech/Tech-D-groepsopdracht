@@ -82,27 +82,28 @@ app.get('/likes/:username', async (req, res) => {
     console.log(likedMovies[0]);
   }
 
-  res.render('likedMovies', { title: 'Likes', data: likedMovies });
+  res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
 });
 
 // Delete movies route
-app.post('/deleteMovie', async (req, res) => {
+app.post('/deleteMovie/:username', async (req, res) => {
   const db = client.db('Moviemates');
-  const user = parseInt(req.params.username);
-  console.log(req.body.movie);
-  // const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
+  let titles = req.body.movie; // veronderstel dat dit een array is van titels die verwijderd moeten worden
+  const user = req.params.username;
+  const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+  const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes.filter((title) => !titles.includes(title)) } }).toArray();
 
-  // const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+  console.log(user);
+  console.log(titles);
 
-  // Get an array of movie titles to remove
-  // const moviesToRemove = req.body.movie;
+  try {
+    await db.collection('Users').updateOne({ Username: user }, { $pull: { Likes: { $in: titles } } });
 
-  // Remove the movies from the account's Likes array
-  // await db.collection('Users').updateOne({ Username: req.params.username }, { $pull: { Likes: { $in: moviesToRemove } } });
-
-  // Redirect to the liked movies page
-  // res.redirect('/likes/' + req.params.username);
-
+    res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Er is een fout opgetreden bij het verwijderen van de film van de lijst met favorieten.');
+  }
 });
 
 

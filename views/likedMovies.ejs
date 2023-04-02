@@ -33,7 +33,7 @@
     </section>
 
     <section>
-        <form method="POST" action="/deleteMovie">
+        <form method="POST" action="/deleteMovie/<%= username %>">
             <fieldset>
                 <% data.forEach(function(likedMovies) { %>
                     <input type="checkbox" id="<%= likedMovies._id%>" name="movie" value="<%= likedMovies.Title %>">
