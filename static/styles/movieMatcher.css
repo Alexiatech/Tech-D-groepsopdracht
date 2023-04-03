@@ -1,6 +1,25 @@
+/* HEADER */
 header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    border-bottom: 1px solid #fff;
+}
+
+.headerH1 {
     color: white;
-    text-align: center;
+    order: 1;
+}
+
+header img{
+    order: 0;
+}
+
+.scroll{
+    overflow-x: auto;
+    margin-bottom: 11em;
+    height: 100%;
 }
 
 
@@ -78,6 +97,7 @@ nav ul li .selected {
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
+    overflow-x: scroll;
     width: 100%;
     gap: 2em;
 }
@@ -126,16 +146,13 @@ nav ul li .selected {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-self: center;
     background-color: #0C0C0C;
     color: #fff;
     width: 80%;
     height: 3em;
     border-radius: 0.5em;
     margin: auto;
-    align-self: center;
     cursor: pointer;
-    
 }
 
 .columnList li input:checked+label{
@@ -145,10 +162,32 @@ nav ul li .selected {
 
 
 
+/* MATCHED MOVIEs */
+.matchedMovie{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    background-color: #0C0C0C;
+    color: #fff;
+    height: 15em;
+    overflow-y: scroll;
+    width: 10em;
+    border-radius: 0.5em;
+    margin: auto;
+    align-self: center;
+    cursor: pointer;
+}
+
+
+
+
 /* NEXT BUTTON */
 .nextButton{
     display: flex;
     align-self: center;
+    align-items: center;
     justify-content: center;
     background-color: #6337C1;
     color: #fff;
@@ -156,8 +195,10 @@ nav ul li .selected {
     height: 3em;
     border-radius: 0.5em;
     margin: auto;
-
+    text-decoration: none;
     cursor: pointer;
+    position: fixed;
+    bottom: 7em;
 }
 
 .nextButton button{
@@ -168,5 +209,4 @@ nav ul li .selected {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
-    text-transform: uppercase;
 }

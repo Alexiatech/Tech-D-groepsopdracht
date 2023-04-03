@@ -4,14 +4,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/styles/movieMatcher.css">
-        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="stylesheet" href="/static/styles/movieMatcher.css">
+        <link rel="stylesheet" href="/static/styles/styles.css">
         <title>Movie Matcher</title>
     </head>
 <body>
     <header>
-        <h1>Movie Matcher Result</h1>
-    </header>
+        <h1 class="headerH1">MovieMatcher</h1>
+        <img src="/uploads/images/moviePage/pijlwit.png" alt="Terug knop">
+</header>
 
     <nav>
         <ul>
@@ -27,43 +28,28 @@
     </nav>
 
     <!-- Main body -->
-    <section>
+    <section class="mainBody">
         <!-- Explanation text -->
-        <section>
+        <section class="explanationText">
             <h2>Here are the top 4  results based on your choices:</h2>
         </section>
 
         <!-- List of movies -->
-        <section>
-            <ul class="film-list">
-                <li class="film-item">
-                    <img src="/public/uploads/images/films/sport/creed-ii-phone-wallpaper.jpeg" alt="Film 1"
-                        class="film-image">
-                    <figcaption class="film-info">
-                        <h3 class="film-title">Film 1</h3>
-                        <p class="film-release">Release date: 1 januari 2022</p>
-                    </figcaption>
-                </li>
-                <li class="film-item">
-                    <img src="/public/uploads/images/films/cartoon/rick&morty.jpeg" alt="Film 2" class="film-image">
-                    <figcaption class="film-info">
-                        <h3 class="film-title">Film 2</h3>
-                        <p class="film-release">Release date: 15 maart 2022</p>
-                    </figcaption>
-                </li>
-                <li class="film-item">
-                    <img src="/public/uploads/images/films/Horror/the-meg-phone-wallpaper.jpeg" alt="Film 3"
-                        class="film-image">
-                    <figcaption class="film-info">
-                        <h3 class="film-title">Film 3</h3>
-                        <p class="film-release">Release date: 30 april 2022</p>
-                    </figcaption>
-                </li>
+        <section class="scroll">
+            <ul class="rowList">
+                    <% movies.forEach(function(movies) { %>
+                        <li>
+                            <div class="matchedMovie">
+                                <img src="/uploads/images/films/<%= movies.Imgurl %>">
+                            </div>
+                        </li>
+                      <% }); %>
+            </ul>
         </section>
 
         <!-- Home button -->
-        <section>
-            <button>Go back home</button>
+        <section class="nextButton">
+            <button type="submit">Continue</button>
         </section>
     </section>
 

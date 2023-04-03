@@ -3,12 +3,17 @@ const express = require('express');
 const app = express();
 const port = 4000;
 const bodyParser = require('body-parser');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const session = require('express-session');
+
+app.use(session({
+  secret: 'mysecretkey',
+  resave: false,
+  saveUninitialized: false
+}));
 
 // Connectie
 const PORT = process.env.PORT || port;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
-
 
 
 
@@ -60,6 +65,17 @@ const algemeneroutes = require('./routes/algemeneroutes');
 
 
 
+// Importeer routebestanden
+const alexiaRoutes = require('./routes/alexiaroutes');
+const larsRoutes = require('./routes/larsroutes');
+const lynnRoutes = require('./routes/lynnroutes');
+const thijmenRoutes = require('./routes/thijmenroutes');
+const youriRoutes = require('./routes/youriroutes');
+const algemeneroutes = require('./routes/algemeneroutes');
+
+
+
+
 // Gebruik de geïmporteerde routes als middleware
 app.use(alexiaRoutes);
 app.use(larsRoutes);
@@ -71,15 +87,11 @@ app.use(algemeneroutes);
 
 
 
-// error 404
+// Error 404
 app.use(function (req, res) {
-  res.locals.title = "Error 404"
-  res.status(404).render('404', {
-    path: 'Error'
-  });
+res.locals.title = "Error 404"
+res.status(404).render('404', {
+path: 'Error'
 });
-
-
-
-
+});
 
