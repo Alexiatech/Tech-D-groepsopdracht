@@ -29,8 +29,8 @@ async function getFetch() {
 router.use('/static/styles', express.static(path.join(__dirname, '../static/styles'), {
   // Stel de headers in voor het serveren van de statische bestanden
   setHeaders: (res) => {
-  // Stel het 'Content-Type'-header in op 'text/css'
-  res.setHeader('Content-Type', 'text/css');
+    // Stel het 'Content-Type'-header in op 'text/css'
+    res.setHeader('Content-Type', 'text/css');
   }
 }));
 
@@ -53,7 +53,7 @@ async function getMoviesByGenre(genre) {
   } catch (error) {
     // Als er een fout optreedt tijdens het ophalen van de films, log dan de fout in de console
     console.error("Error while fetching movies: ", error);
-  } 
+  }
 }
 
 
@@ -135,9 +135,9 @@ router.post('/save-movie/:id', async (req, res) => {
     }
 
     // Verkrijg de 'savedMovies'-collectie uit de 'Moviemates'-database
-    const savedMoviesCollection = client.db("Moviemates").collection("savedMovies");
+    const savedMoviesCollection = client.db("Moviemates").collection("Users");
     // Voeg de gevonden film toe aan de 'savedMovies'-collectie
-    await savedMoviesCollection.insertOne(movie);
+    await savedMoviesCollection.insertOne(movie.Title);
 
     // Stuur de gebruiker terug naar de hoofdpagina na het opslaan van de film
     res.redirect('/');
@@ -185,25 +185,39 @@ router.get('/saved-movies', async (req, res) => {
 router.post('/toggle-movie/:movieId', async (req, res) => {
   // Haal de movieId uit de route-parameters
   const movieId = req.params.movieId;
+  const movie = await client.db('Moviemates').collection('Movies').findOne({ _id: new ObjectId(movieId) });
+  const account = await client.db('Moviemates').collection('Users').find({ Username: 'Larsvv' }).toArray();
+  const user = 'Larsvv';
+
+  console.log(account[0].Likes);
+
 
   // Zoek de film in de savedMovies collectie met behulp van het opgegeven movieId
-  const savedMovie = await client.db('Moviemates').collection('savedMovies').findOne({ _id: new ObjectId(movieId) });
+  const savedMovie = await client.db('Moviemates').collection('Users').findOne({ Likes: movie.Title });
 
-  if (savedMovie) {
-    // Als de film al in de savedMovies collectie staat, verwijder deze dan
-    await client.db('Moviemates').collection('savedMovies').deleteOne({ _id: new ObjectId(movieId) });
+
+  let saveDelete = {};
+
+
+  if (account[0].Likes.includes(movie.Title)) {
+    saveDelete = { $pull: { Likes: movie.Title } };
     // Stuur een 200 OK-status om aan te geven dat de film is verwijderd
     res.status(200).send();
   } else {
-    // Als de film niet in de savedMovies collectie staat, sla deze dan op
-    // Zoek eerst de film in de Movies collectie met behulp van het opgegeven movieId
-    const movie = await client.db('Moviemates').collection('Movies').findOne({ _id: new ObjectId(movieId) });
-    // Voeg de gevonden film toe aan de savedMovies collectie
-    await client.db('Moviemates').collection('savedMovies').insertOne(movie);
+    saveDelete = { $push: { Likes: movie.Title } };
     // Stuur een 201 Created-status om aan te geven dat de film is opgeslagen
     res.status(201).send();
   }
+
+  try {
+    await client.db('Moviemates').collection('Users').updateOne({ Username: user }, saveDelete);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Er is een fout opgetreden bij het verwijderen van de film van de lijst met favorieten.');
+  }
 });
+
 
 
 
