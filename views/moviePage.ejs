@@ -6,34 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/moviePage.css">
-    <title>Movie Page</title>
+    <title><%= title %></title>
 </head>
 
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
+                <li><a href="/"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
                     <div class="selected"></div>
                 </li>
-                <li><a href="#"><img src="/uploads/images/logos_footer/search-gray.svg" alt="search"></a></li>
-                <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
+                <li><a href="/"><img src="/uploads/images/logos_footer/search-gray.svg" alt="search"></a></li>
+                <li><a href="/"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
                 <li>
-                    <a href="#"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
+                    <a href="/"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Title of the movie</h1>
-            <img src="/uploads/images/moviePage/pijlwit.png" alt="opgeslagen films bekijken">
+            <!-- Toont de filmtitel -->
+            <h1><%= movie.Title %></h1>
+            <!-- Navigatie link naar de hoofdpagina -->
+            <a href="/" alt=""><img src="/uploads/images/moviePage/pijlwit.png" alt="opgeslagen films bekijken"></a>
+            <!-- Visuele scheiding tussen secties -->
             <div class="lijn"></div>
         </section>
         <section>
-            <img src="/uploads/images/films/cartoon/rick&morty.jpeg" alt="">
+            <!-- Toont de filmposter -->
+            <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>">
+
             <!-- Begin beoordelingssterren container -->
             <div class="beoordelingssterren" id="beoordelingsSterren">
+                <!-- Radio buttons voor beoordelingen (0-5) -->
                 <input type="radio" name="beoordeling" id="bs0" checked><label for="bs0"></label>
                 <input type="radio" name="beoordeling" id="bs1"><label for="bs1"></label>
                 <input type="radio" name="beoordeling" id="bs2"><label for="bs2"></label>
@@ -43,35 +49,51 @@
                 <!-- Beoordelingsaantal weergeven -->
                 <span class="beoordelingsaantal"></span>
             </div>
+            <!-- Toont het kopje 'Description' -->
             <h2>Description</h2>
+            <!-- Toont het eerste deel van de filmbeschrijving -->
             <div class="description">
-                <p>Rick and Morty is een populaire animatieserie die de avonturen volgt van de cynische en alcoholische
-                    wetenschapper Rick Sanchez en zijn naïeve en beïnvloedbare kleinzoon Morty Smith.</p>
+                <p><%= movie.Description.split('\n')[0] %></p>
+                <!-- Link om de rest van de beschrijving te tonen -->
                 <a href="#" class="read-more">Lees meer</a>
-                <p class="more-text">Samen reizen ze naar verschillende dimensies en alternatieve universums, waar ze
-                    allerlei bizarre wezens en situaties tegenkomen. De serie staat bekend om zijn intelligente humor,
-                    verwijzingen naar popcultuur en surrealistische verhalen, en zijn bereidheid om complexe
-                    filosofische en wetenschappelijke concepten aan te pakken. Ondanks zijn gekke uiterlijk verkent Rick
-                    and Morty vaak diepere thema's zoals familiedynamiek, existentialisme en de aard van de vrije wil.
+                <!-- Extra beschrijvingstekst die verborgen is totdat er op 'Lees meer' wordt geklikt -->
+                <p class="more-text">
+                    <!-- Ga door de rest van de beschrijving en toon elke regel -->
+                    <% movie.Description.split('\n').slice(1).forEach((line) => { %>
+                    <%= line %><br>
+                    <% }) %>
                 </p>
+                <!-- Link om de extra beschrijvingstekst te verbergen -->
                 <a href="#" class="read-less" style="display:none;">Lees minder</a>
+                <!-- Container voor de genre- en taalknoppen -->
                 <div class="genre-buttons">
-                    <button class="genre-button">Comedy</button>
-                    <button class="genre-button">Science Fiction</button>
+                    <!-- Toont de genre van de film -->
+                    <button class="genre-button"><%= movie.Genre %></button>
+                    <!-- Gaat door de talen van de film en toont ze als knoppen -->
+                    <% movie.Language.forEach((language) => { %>
+                    <button class="genre-button"><%= language %></button>
+                    <% }) %>
                 </div>
             </div>
         </section>
+
         <section>
+            <!-- Container div voor de knoppen met de class "custom-buttons" -->
             <div class="custom-buttons">
+
+                <!-- Link-element met de class "button play-movie" voor het afspelen van de film -->
                 <a href="#" class="button play-movie">
+                    <!-- Tekst 'PLAY MOVIE' binnen het link-element -->
                     <span>PLAY MOVIE</span>
                 </a>
-                <a href="#" class="button add-to-movies">
+                <!-- Button-element met de class "button add-to-movies" en een data-attribuut "data-id" met de ID van de film -->
+                <button class="button add-to-movies" data-id="<%= movie._id.toString() %>">
+                    <!-- Afbeelding van een ster met een alt-tekst "Ster opslaan" -->
                     <img src="/uploads/images/home/stertransparant.png" alt="Ster opslaan">
+                    <!-- Tekst 'ADD TO 'MOVIES YOU LIKE'' binnen het button-element -->
                     <span>ADD TO 'MOVIES YOU LIKE'</span>
-                </a>
+                </button>
             </div>
-
         </section>
     </main>
     <script src="/scripts/moviePage.js"></script>

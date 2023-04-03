@@ -391,3 +391,8 @@ section:nth-of-type(2) h2 {
 .add-to-movies img {
     width: 20px;  
 }
+
+/* In je home.css of een ander stylesheet bestand */
+.add-to-movies.saved {
+    background-color: white;
+}
