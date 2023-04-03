@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = 4000;
 const bodyParser = require('body-parser');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // Connectie
 const PORT = process.env.PORT || port;
@@ -58,6 +59,7 @@ app.use(function (req, res) {
     path: 'Error'
   });
 });
+
 
 
 
