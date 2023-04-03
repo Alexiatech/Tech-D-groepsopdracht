@@ -1,14 +1,50 @@
+const { client } = require('../server');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-// Middleware om CSS-bestanden te serveren met het juiste MIME-type
-router.use('/static/styles', express.static(path.join(__dirname, '../static/styles'), {
-  setHeaders: (res) => {
-    res.setHeader('Content-Type', 'text/css');
+
+
+// Liked pagina route
+router.get('/likes/:username', async (req, res) => {
+
+  const db = client.db('Moviemates');
+  const user = parseInt(req.params.username);
+  const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+  const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
+
+  //loop om alle films uit de array te halen
+  for (let i = 0; i < likedMovies.length; i++) {
+    const movie = likedMovies[i];
+    console.log(likedMovies[0]);
   }
-}));
 
-// Voeg hier je andere routes toe
+  res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
+});
 
+// Delete movies route
+router.post('/deleteMovie/:username', async (req, res) => {
+  const db = client.db('Moviemates');
+  let titles = req.body.movie; // veronderstel dat dit een array is van titels die verwijderd moeten worden
+  const user = req.params.username;
+  const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+  const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes.filter((title) => !titles.includes(title)) } }).toArray();
+
+  console.log(user);
+  console.log(titles);
+
+  try {
+    await db.collection('Users').updateOne({ Username: user }, { $pull: { Likes: { $in: titles } } });
+
+    res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Er is een fout opgetreden bij het verwijderen van de film van de lijst met favorieten.');
+  }
+});
+
+
+// export router module
 module.exports = router;
+
+
