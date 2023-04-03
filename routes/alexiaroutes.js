@@ -3,12 +3,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const {start} = require('repl');
-
 const session = require('express-session');
-
-
 const bcrypt = require ('bcrypt');
-
 
 
 
@@ -21,11 +17,15 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
 }));
 
 
+
+
 router.use(session({
   secret: 'gwzauj27y36478i3uejfjeh73ye', // dit moet een lange en willekeurige string zijn
   resave: false,
   saveUninitialized: true
 }));
+
+
 
 
 // Hier komen je routes
@@ -39,30 +39,32 @@ router.get('/register', (req, res) => {
   res.render('register', { title: 'register'});
 });
 
-router.get('/home', (req, res) => {
-  res.render('home', { title: 'Homepage'});
-});
+
 
 
 // registreren voor de website
-
 router.post('/submit', async (req, res) => {
-      const name = req.body.name;
+      const firstName = req.body.Firstname;
+      const lastName = req.body.Lastname;
       const birthday = req.body.birthday;
       const email = req.body.email;
+      const City = req.body.city;
       const password = req.body.password;
+
       // const confirmPassword = req.body.password2;
       // const error = "Password don't match";
 
-      console.log(name, email, password, birthday);
+      // console.log(firstName, email, password, birthday);
       
       const hashedPassword = await bcrypt.hash(password, 10);
 
         const userdata = {
-          name: name,
-          pwd: hashedPassword,
+          Firstname: firstName,
+          Lastname: lastName,
+          password: hashedPassword,
+          city: City,
           email: email,
-          birthday: birthday,
+          dateOfBirth: birthday,
         }
 
         console.log(userdata);
@@ -77,7 +79,8 @@ router.post('/submit', async (req, res) => {
       
     });
 
-    // deze werkt nog niet 
+
+    
 
 
     // express session aanmelden 
