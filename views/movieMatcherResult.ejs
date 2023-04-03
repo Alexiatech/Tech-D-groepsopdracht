@@ -35,12 +35,12 @@
         </section>
 
         <!-- List of movies -->
-        <section>
+        <section class="scroll">
             <ul class="rowList">
-                    <% movies.forEach(function(movie) { %>
+                    <% movies.forEach(function(movies) { %>
                         <li>
                             <div class="matchedMovie">
-                                <p><%= movie.title %></p>
+                                <img src="/uploads/images/films/<%= movies.Imgurl %>">
                             </div>
                         </li>
                       <% }); %>
