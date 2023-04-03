@@ -1,16 +1,14 @@
 // require dependecies
 const express = require('express');
 const app = express();
-const { engine } = require('ejs');
 const port = 4000;
 const bodyParser = require('body-parser');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-
-
-
-// connectie
+// Connectie
 const PORT = process.env.PORT || port;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
+
 
 
 
@@ -35,9 +33,6 @@ const client = new MongoClient(
 client.connect()
   .then((res) => console.log('@@-- connection established', res))
   .catch((err) => console.log('@@-- error', err));
-
-
-
 
 // exporteer het client object
 module.exports = {
@@ -65,7 +60,7 @@ const algemeneroutes = require('./routes/algemeneroutes');
 
 
 
-// gebruik de geïmporteerde routes als middleware
+// Gebruik de geïmporteerde routes als middleware
 app.use(alexiaRoutes);
 app.use(larsRoutes);
 app.use(lynnRoutes);
