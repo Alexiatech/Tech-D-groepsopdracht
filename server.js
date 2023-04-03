@@ -1,9 +1,18 @@
-// Require DEPENDENCIES
+// Require dependecies
 const express = require('express');
 const app = express();
-const { engine } = require('ejs');
 const port = 4000;
 const bodyParser = require('body-parser');
+const session = require('express-session');
+
+
+
+
+app.use(session({
+  secret: 'mysecretkey',
+  resave: false,
+  saveUninitialized: false
+}));
 
 
 
@@ -52,6 +61,8 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 
+
+
 // Importeer routebestanden
 const alexiaRoutes = require('./routes/alexiaroutes');
 const larsRoutes = require('./routes/larsroutes');
@@ -73,11 +84,24 @@ app.use(algemeneroutes);
 
 
 
+
 // Error 404
 app.use(function (req, res) {
   res.locals.title = "Error 404"
   res.status(404).render('404', {
     path: 'Error'
   });
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
