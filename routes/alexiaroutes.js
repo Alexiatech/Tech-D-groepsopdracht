@@ -31,7 +31,7 @@ router.use(session({
 // Hier komen je routes
 const moviesUser = client.db('Moviemates').collection('Users');
 
-router.get('/signup', (req, res) => {
+router.get('/', (req, res) => {
   res.render('signup', { title: 'sign in'});
 });
 
