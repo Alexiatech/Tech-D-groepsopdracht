@@ -211,7 +211,7 @@ nav ul li .selected {
     bottom: 7em;
 }
 
-.nextButton button{
+.nextButton a{
     background: none;
 	color: inherit;
 	border: none;
@@ -219,4 +219,5 @@ nav ul li .selected {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+    text-decoration: none;
 }
