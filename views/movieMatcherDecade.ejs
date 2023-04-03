@@ -12,21 +12,9 @@
 
 <body>
     <header>
-        <h1>Movie Matcher</h1>
+            <h1 class="headerH1">MovieMatcher</h1>
+            <img src="/uploads/images/moviePage/pijlwit.png" alt="Terug knop">
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="#"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
-            <li><a href="#"><img src="/uploads/images/logos_footer/search-selected.svg" alt="search"></a>
-                <div class="selected"></div>
-            </li>
-            <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-            <li>
-                <a href="#"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-            </li>
-        </ul>
-    </nav>
 
     <!-- Main body -->
     <section class="mainBody">
@@ -37,6 +25,7 @@
 
         <!-- Decade selector -->
         <section>
+            <form method="POST" action="/moviematcher/submit?from=decade">
             <ul class="columnList">
                 <li><input type="checkbox" id="2020-now" name="decadePicker" value="2020-now">
                     <label for="2020-now">2020-now</label></li>
@@ -60,11 +49,25 @@
 
         <!-- Continue button -->
         <section class="nextButton">
-            <button>Continue</button>
+            <button type="submit">Continue</button>
         </section>
+    </form>
     </section>
 
-    <footer></footer>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
+                <li><a href="#"><img src="/uploads/images/logos_footer/search-selected.svg" alt="search"></a>
+                    <div class="selected"></div>
+                </li>
+                <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
+                <li>
+                    <a href="#"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 
 </html>

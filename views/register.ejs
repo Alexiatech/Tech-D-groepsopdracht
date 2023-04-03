@@ -1,4 +1,5 @@
 <head>
+    <link href="/styles/styles.css" rel="stylesheet">
     <link href="/styles/register.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,22 @@
 
 
 <body class="regIster">
-    <img src="./upload/Group 6.png" alt="log in">
+    <img src="/uploads/images/icons/arrow.png" alt="log in">
 
     <h1>Create an account</h1>
-    <img src="upload/Scherm_afbeelding 2023-02-17 om 09.49 1.png" alt="log in">
-    <img src="./upload/Group 45.png" alt="log in">
-
 
     <form action="/submit" method="POST" class="form-container">
-        <input id="name" required type="text" placeholder="Name*">
-        <input id="birthday" type="date" placeholder="Date of birth*">
-        <input id="e-mail" required type="email" placeholder="Email*">
+        <input id="name" name="name" required type="text" placeholder="Name*">
+        <input id="birthday" name="birthday" type="date" placeholder="Date of birth*">
+        <input id="email" name="email" required type="email" placeholder="Email*">
 
-        <input id="password" type="password" placeholder="Password*">
-        <input id="comfirmPassword" type="password" placeholder="Comfirm password*">
+
+        <input id="password" name="password" type="password" placeholder="Password*">
+        <input id="password2" name="password2" type="password" placeholder="Comfirm password*">
         <button type="submit">Sign up</button>
     </form>
 
-    <p>Don’t have an account yet?<a href="">Sign up</a></p>
+    <p>Have an account?<a href="signup">Sign in</a></p>
 </body>
 
 </html>

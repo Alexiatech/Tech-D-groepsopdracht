@@ -12,8 +12,9 @@
 
 <body>
     <header>
-        <h1>Movie Matcher</h1>
-    </header>
+        <h1 class="headerH1">MovieMatcher</h1>
+        <img src="/uploads/images/moviePage/pijlwit.png" alt="Terug knop">
+</header>
 
     <nav>
         <ul>
@@ -36,44 +37,45 @@
 
         <!-- Genre selector -->
         <section>
+            <form method="POST" action="/moviematcher/submit?from=genre">
             <ul class="rowList">
-                <li><input type="checkbox" id="horror" name="generePicker" value="horror">
+                <li><input type="checkbox" id="horror" name="genrePicker[]" value="Horror">
                     <label for="horror">Horror</label>
                 </li>
 
-                <li><input type="checkbox" id="romance" name="generePicker" value="romance">
+                <li><input type="checkbox" id="romance" name="genrePicker[]" value="Romance">
                     <label for="romance">Romance</label>
                 </li>
 
-                <li><input type="checkbox" id="thriller" name="generePicker" value="thriller">
+                <li><input type="checkbox" id="thriller" name="genrePicker[]" value="Thriller">
                     <label for="thriller">Thriller</label>
                 </li>
 
-                <li><input type="checkbox" id="comedy" name="generePicker" value="comedy">
+                <li><input type="checkbox" id="comedy" name="genrePicker[]" value="Comedy">
                     <label for="comedy">Comedy</label>
                 </li>
 
-                <li><input type="checkbox" id="drama" name="generePicker" value="drama">
+                <li><input type="checkbox" id="drama" name="genrePicker[]" value="Drama">
                     <label for="drama">Drama</label>
                 </li>
 
-                <li><input type="checkbox" id="kids" name="generePicker" value="kids">
+                <li><input type="checkbox" id="kids" name="genrePicker[]" value="Kids">
                     <label for="kids">Kids</label>
                 </li>
 
-                <li><input type="checkbox" id="action" name="generePicker" value="action">
+                <li><input type="checkbox" id="action" name="genrePicker[]" value="Action">
                     <label for="action">Action</label>
                 </li>
 
-                <li><input type="checkbox" id="anime" name="generePicker" value="anime">
+                <li><input type="checkbox" id="anime" name="genrePicker[]" value="Anime">
                     <label for="anime">Anime</label>
                 </li>
 
-                <li><input type="checkbox" id="family" name="generePicker" value="family">
+                <li><input type="checkbox" id="family" name="genrePicker[]" value="Family">
                     <label for="family">Family</label>
                 </li>
 
-                <li><input type="checkbox" id="documentary" name="generePicker" value="documentary">
+                <li><input type="checkbox" id="documentary" name="genrePicker[]" value="Documentary">
                     <label for="documentary">Documentary</label>
                 </li>
             </ul>
@@ -81,9 +83,10 @@
 
         <!-- Continue button -->
         <section class="nextButton">
-            <button>Continue</button>
+            <button type="submit">Continue</button>
         </section>
+    </form>
     </section>
 </body>
 
-</html>
+</html> 

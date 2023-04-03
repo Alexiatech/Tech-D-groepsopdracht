@@ -1,17 +1,25 @@
-// require dependecies
+
+// Require dependecies
+
 const express = require('express');
 const app = express();
-const { engine } = require('ejs');
 const port = 4000;
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 
 
 
+app.use(session({
+  secret: 'mysecretkey',
+  resave: false,
+  saveUninitialized: false
+}));
 
 
 
-// connectie
+
+// Connectie
 const PORT = process.env.PORT || port;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
 
@@ -35,9 +43,13 @@ const client = new MongoClient(
   { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 );
 
+
 client.connect()
   .then((res) => console.log('@@-- connection established', res))
   .catch((err) => console.log('@@-- error', err));
+
+
+
 
 
 // exporteer het client object
@@ -49,8 +61,6 @@ module.exports = {
 // gebruik EJS als de standaard view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
-
 
 
 // importeer routebestanden
