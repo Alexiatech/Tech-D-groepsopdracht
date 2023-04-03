@@ -33,8 +33,19 @@ router.post('/deleteMovie/:username', async (req, res) => {
   console.log(user);
   console.log(titles);
 
+  let query = {};
+
+  if (Array.isArray(titles)) {
+    query = { $pull: { Likes: { $in: titles } } };
+  } else {
+    query = { $pull: { Likes: titles } };
+  }
+
+  console.log(user);
+  console.log(titles);
+
   try {
-    await db.collection('Users').updateOne({ Username: user }, { $pull: { Likes: { $in: titles } } });
+    await db.collection('Users').updateOne({ Username: user }, query);
 
     res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
   } catch (err) {
