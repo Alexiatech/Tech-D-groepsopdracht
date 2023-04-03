@@ -1,6 +1,4 @@
-
-// Require dependecies
-
+// require dependecies
 const express = require('express');
 const app = express();
 const port = 4000;
@@ -10,6 +8,7 @@ const session = require('express-session');
 
 
 
+// express session
 app.use(session({
   secret: 'mysecretkey',
   resave: false,
@@ -19,12 +18,9 @@ app.use(session({
 
 
 
-// Connectie
+// connectie
 const PORT = process.env.PORT || port;
 app.listen(PORT, console.log(`Running on port: ${PORT}`));
-
-
-
 
 
 
@@ -35,6 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('dotenv').config({ path: '.env' });
 
 
+
+
 // database
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.DB_CONNECTION_STRING;
@@ -42,6 +40,8 @@ const client = new MongoClient(
   uri,
   { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 );
+
+
 
 
 client.connect()
@@ -58,9 +58,13 @@ module.exports = {
 };
 
 
+
+
 // gebruik EJS als de standaard view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+
 
 
 // importeer routebestanden
@@ -71,6 +75,9 @@ const thijmenRoutes = require('./routes/thijmenroutes');
 const youriRoutes = require('./routes/youriroutes');
 const algemeneroutes = require('./routes/algemeneroutes');
 
+
+
+
 // gebruik de geïmporteerde routes als middleware
 app.use(alexiaRoutes);
 app.use(larsRoutes);
@@ -78,6 +85,8 @@ app.use(lynnRoutes);
 app.use(thijmenRoutes);
 app.use(youriRoutes);
 app.use(algemeneroutes);
+
+
 
 
 // error 404

@@ -3,12 +3,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const {start} = require('repl');
-
 const session = require('express-session');
-
-
 const bcrypt = require ('bcrypt');
-
 
 
 
@@ -21,11 +17,15 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
 }));
 
 
+
+
 router.use(session({
   secret: 'gwzauj27y36478i3uejfjeh73ye', // dit moet een lange en willekeurige string zijn
   resave: false,
   saveUninitialized: true
 }));
+
+
 
 
 // Hier komen je routes
@@ -41,8 +41,8 @@ router.get('/register', (req, res) => {
 
 
 
-// registreren voor de website
 
+// registreren voor de website
 router.post('/submit', async (req, res) => {
       const firstName = req.body.Firstname;
       const lastName = req.body.Lastname;
@@ -79,7 +79,8 @@ router.post('/submit', async (req, res) => {
       
     });
 
-    // deze werkt nog niet 
+
+    
 
 
     // express session aanmelden 
