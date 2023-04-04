@@ -73,7 +73,6 @@ const larsRoutes = require('./routes/larsroutes');
 const lynnRoutes = require('./routes/lynnroutes');
 const thijmenRoutes = require('./routes/thijmenroutes');
 const youriRoutes = require('./routes/youriroutes');
-const algemeneroutes = require('./routes/algemeneroutes');
 
 
 
@@ -84,7 +83,7 @@ app.use(larsRoutes);
 app.use(lynnRoutes);
 app.use(thijmenRoutes);
 app.use(youriRoutes);
-app.use(algemeneroutes);
+
 
 
 
