@@ -51,11 +51,18 @@ h1 {
     margin-top: 22px;
 }
 
+section:nth-of-type(1) a img{
+    position: absolute;
+    top: 69px;
+    left: 30px;
+    width: 8%;
+}
+
 section:nth-of-type(1) img {
     position: absolute;
-    top: 62px;
-    left: 30px;
-    width: 2.5em;
+    top: 58px;
+    right: 30px;
+    width: 8%;
 }
 
 
