@@ -72,17 +72,9 @@ router.get('/home/:username', async (req, res) => {
     const cartoonMovies = await getMoviesByGenre("Cartoon");
     const horrorMovies = await getMoviesByGenre("Horror");
     const sportMovies = await getMoviesByGenre("Sport");
-
-    // // Verkrijg de fetch instantie met behulp van de 'getFetch' functie
-    // const fetchInstance = await getFetch();
-    // // Voer een GET-verzoek uit naar de '/saved-movies' endpoint en sla het resultaat op in 'savedMoviesResponse'
-    // const savedMoviesResponse = await fetchInstance('http://localhost:4000/saved-movies');
-    // // Converteer het antwoord naar JSON en sla het op in 'savedMovies'
-    // const savedMovies = await savedMoviesResponse.json();
-
     const db = client.db('Moviemates');
-    const user = parseInt(req.params.username);
     const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+    const userFirstname = account[0].Firstname;
     const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
 
     //loop om alle films uit de array te halen
@@ -99,7 +91,8 @@ router.get('/home/:username', async (req, res) => {
       actionMovies, // Geef de actiefilms door aan de view
       cartoonMovies, // Geef de tekenfilms door aan de view
       horrorMovies, // Geef de horrorfilms door aan de view
-      sportMovies // Geef de sportfilms door aan de view
+      sportMovies, // Geef de sportfilms door aan de view
+      Firstname: userFirstname
     });
   } catch (error) {
     // Als er een fout optreedt tijdens het renderen van de homepagina, log dan de fout in de console
