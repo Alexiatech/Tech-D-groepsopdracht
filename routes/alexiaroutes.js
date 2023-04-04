@@ -53,12 +53,6 @@ router.post('/submit', async (req, res) => {
       const email = req.body.email;
       const City = req.body.city;
       const password = req.body.password;
-
-      // const confirmPassword = req.body.password2;
-      // const error = "Password don't match";
-
-      // console.log(firstName, email, password, birthday);
-      
       const hashedPassword = await bcrypt.hash(password, 10);
 
         const userdata = {
@@ -80,7 +74,7 @@ router.post('/submit', async (req, res) => {
         req.session.user = userdata;
 
         // redirect the user to the confirmation page
-        res.redirect('/signup');
+        res.redirect('/');
 
       
     });

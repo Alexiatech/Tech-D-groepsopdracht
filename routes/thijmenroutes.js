@@ -73,7 +73,7 @@ router.get('/home/:username', async (req, res) => {
     const horrorMovies = await getMoviesByGenre("Horror");
     const sportMovies = await getMoviesByGenre("Sport");
     const db = client.db('Moviemates');
-    const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+    const account = await db.collection('Users').find({ Username: 'req.params.username' }).toArray();
     const userFirstname = account[0].Firstname;
     const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
 
