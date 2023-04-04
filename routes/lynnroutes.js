@@ -20,12 +20,12 @@ router.post('/profile', async (req, res) => {
 	console.log(req.body);
 
 	const {
-		firstName, 
-		lastName,
+		Firstname, 
+		Lastname,
 		dateOfBirth, 
 		city,
 		email, 
-		phoneNumber, 
+		Phonenumber, 
 		password
     } = req.body;  
 
@@ -35,13 +35,13 @@ router.post('/profile', async (req, res) => {
 
 	await collection.findOneAndUpdate({}, {
 		$set: {
-			firstName: firstName, 
-			lastName: lastName,
+			Firstname: Firstname, 
+			Lastname: Lastname,
 			dateOfBirth: dateOfBirth, 
 			city: city,
-			locationName, locationName,
+			locationName: locationName,
 			email: email, 
-			phoneNumber: phoneNumber, 
+			Phonenumber: Phonenumber, 
 			password: password
     	}
 	});

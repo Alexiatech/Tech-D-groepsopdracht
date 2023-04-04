@@ -48,6 +48,7 @@ router.post('/submit', async (req, res) => {
       const userName = req.body.Username;
       const firstName = req.body.Firstname;
       const lastName = req.body.Lastname;
+      const Phonenumber = req.body.Phonenumber; 
       const birthday = req.body.birthday;
       const email = req.body.email;
       const City = req.body.city;
@@ -64,6 +65,7 @@ router.post('/submit', async (req, res) => {
           Username: userName,
           Firstname: firstName,
           Lastname: lastName,
+          Phonenumber: Phonenumber,
           password: hashedPassword,
           city: City,
           email: email,
