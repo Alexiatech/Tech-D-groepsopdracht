@@ -4,98 +4,112 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
 
+    <!-- TITLE -->
     <title>Profile</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles/styles.css">
+    <!-- STYLES -->
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/profile.css">
 
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header>
         <h1>Profile</h1>
-        <a href="/signup"><img src="/uploads/images/profilePage/sign-out.svg" alt="sign-out"></a>
+        <a href="/"><img src="/uploads/images/profilePage/sign-out.svg" alt="sign-out"></a>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="/"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
-            <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-gray.svg" alt="search"></a></li>
-            <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-            <li>
-                <a href="/profile"><img src="/uploads/images/logos_footer/profile-selected.svg" alt="profile"></a>
-                <div class="selected"></div>
-            </li>
-        </ul>
-    </nav>
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
 
+    <!-- MAIN -->
     <main>
 
+        <!-- EDIT PROFILE BUTTON -->
         <section>
             <img src="/uploads/images/profilePage/profile-picture.jpg" alt="profile-picture">
             <a href="/editProfile">Edit Profile</a>
         </section>
 
+        <!-- FORM -->
         <section>
-            <h2>First name</h2>
-            <% if (profile.Firstname) { %>
-                <p> <%= profile.Firstname %> </p>
-            <% } else { %>  
-                <p> No first name </p>
-            <% } %>  
+            <section>
+                <h2>Username</h2>
+                <% if (profile.Username) { %>
+                    <p> <%= profile.Username %> </p>
+                <% } else { %>  
+                    <p> No username </p>
+                <% } %>  
+            </section>
 
-            <h2>Last name</h2>
-            <% if (profile.Lastname) { %>
-                <p> <%= profile.Lastname %> </p>
-            <% } else { %>  
-                <p> No last name </p>
-            <% } %>  
+            <section>
+                <h2>First name</h2>
+                <% if (profile.Firstname) { %>
+                    <p> <%= profile.Firstname %> </p>
+                <% } else { %>  
+                    <p> No first name </p>
+                <% } %>  
+            </section>
 
-            <h2>Date of birth</h2>
-            <% if (profile.dateOfBirth) { %>
-                <p> <%= profile.dateOfBirth %> </p>
-            <% } else { %>  
-                <p> No age </p>
-            <% } %>  
+            <section>
+                <h2>Last name</h2>
+                <% if (profile.Lastname) { %>
+                    <p> <%= profile.Lastname %> </p>
+                <% } else { %>  
+                    <p> No last name </p>
+                <% } %>  
+            </section>
 
-            <h2>City</h2>
-            <% if (profile.locationName) { %>
-                <p> <%= profile.locationName %> </p>
-            <% } else if (profile.city) { %>  
-                <p> <%= profile.city %> </p>
-            <% } else { %>  
-                <p> No location </p>
-            <% } %>
+            <section>
+                <h2>Date of birth</h2>
+                <% if (profile.dateOfBirth) { %>
+                    <p> <%= profile.dateOfBirth %> </p>
+                <% } else { %>  
+                    <p> No age </p>
+                <% } %>   
+            </section>
 
-            <h2>Email</h2>
-            <% if (profile.email) { %>
-                <p> <%= profile.email %> </p>
-            <% } else { %>  
-                <p> No email </p>
-            <% } %>  
+            <section>
+                <h2>City</h2>
+                <% if (profile.locationName) { %>
+                    <p> <%= profile.locationName %> </p>
+                <% } else if (profile.city) { %>  
+                    <p> <%= profile.city %> </p>
+                <% } else { %>  
+                    <p> No location </p>
+                <% } %>
+            </section>
 
-            <h2>Phone number</h2>
-            <% if (profile.Phonenumber) { %>
-                <p> <%= profile.Phonenumber %> </p>
-            <% } else { %>  
-                <p> No phone number </p>
-            <% } %>  
+            <section>
+                <h2>Email</h2>
+                <% if (profile.email) { %>
+                    <p> <%= profile.email %> </p>
+                <% } else { %>  
+                    <p> No email </p>
+                <% } %>  
+            </section>
 
-            <h2>Password</h2>
-            <% if (profile.password) { %>
-                <p> <%= profile.password %> </p>
-            <% } else { %>  
-                <p> No password </p>
-            <% } %>  
+            <section>
+                <h2>Phone number</h2>
+                <% if (profile.Phonenumber) { %>
+                    <p> <%= profile.Phonenumber %> </p>
+                <% } else { %>  
+                    <p> No phone number </p>
+                <% } %>  
+            </section>
+
+            <section>
+                <h2>Password</h2>
+                <% if (profile.password) { %>
+                    <p> <%= profile.password %> </p>
+                <% } else { %>  
+                    <p> No password </p>
+                <% } %>  
+            </section>
         </section>
 
     </main>

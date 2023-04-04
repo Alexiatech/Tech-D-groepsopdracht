@@ -1,40 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/styles/movieMatcher.css">
-        <link rel="stylesheet" href="/static/styles/styles.css">
+
+        <!-- HEAD PARTIAL -->
+        <%- include('head-partial') %>
+
+        <!-- TITLE -->
         <title>Results</title>
+
+        <!-- STYLES -->
+        <link rel="stylesheet" href="/static/styles/movieMatcher.css">
+
     </head>
+
 <body>
+
+    <!-- HEADER -->
     <header>
         <a href="/moviematcher/language"><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
         <h1>Results</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="/"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
-            <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-selected.svg" alt="search"></a>
-                <div class="selected"></div>
-            </li>
-            <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-            <li>
-                <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-            </li>
-        </ul>
-    </nav>
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
 
-    <!-- Main body -->
+    <!-- 'MAIN' -->
     <section class="mainBody">
-        <!-- Explanation text -->
+
+        <!-- RESULTS TITLE -->
         <section class="explanationText">
             <h2>Here are the top 4  results based on your choices:</h2>
         </section>
 
-        <!-- List of movies -->
+        <!-- RESULTS -->
         <section class="scroll">
             <ul class="rowList">
                     <% movies.forEach(function(movies) { %>
@@ -43,14 +43,17 @@
                                 <img src="/uploads/images/films/<%= movies.Imgurl %>">
                             </div>
                         </li>
-                      <% }); %>
+                    <% }); %>
             </ul>
         </section>
 
-        <!-- Home button -->
+        <!-- SUBMIT BUTTON -->
         <section class="nextButton">
             <a href="/">Go back home</a>
         </section>
+
     </section>
+
 </body>
+
 </html>

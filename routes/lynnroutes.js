@@ -1,4 +1,4 @@
-// load packages and modules
+// INLADEN PACKAGES EN MODULES
 const { client } = require('../server');
 const express = require('express');
 const router = express.Router();
@@ -7,7 +7,7 @@ const path = require('path');
 
 
 
-// load static files
+// MIDDELWARE OM CSS TE SERVEREN MET JUISTE MIME-TYPE
 router.use('/static/styles', express.static(path.join(__dirname, '../static/styles'), { setHeaders: (res) => {
     res.setHeader('Content-Type', 'text/css');
 }}));
@@ -15,8 +15,9 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
 
 
 
-// profile POST
+// PROFILE POST
 router.post('/profile', async (req, res) => { 
+	
 	console.log(req.body);
 
 	const {
@@ -52,10 +53,11 @@ router.post('/profile', async (req, res) => {
 
 
 
-// profile GET
+// PROFILE GET
 router.get('/profile', onProfile);
 
 async function onProfile(req, res) { 
+
 	const collection = client.db('Moviemates').collection('Users'); 
 	const profile = await collection.findOne({}); 
 
@@ -67,10 +69,11 @@ async function onProfile(req, res) {
 
 
 
-// edit profile GET
+// EDIT PROFILE GET
 router.get('/editProfile', editProfile); 
 
 async function editProfile(req, res) {
+
 	const collection = client.db('Moviemates').collection('Users'); 
 	const profile = await collection.findOne(); 
 
@@ -82,5 +85,5 @@ async function editProfile(req, res) {
 
 
 
-// export router module
+// ROUTER EXPORTEREN
 module.exports = router;

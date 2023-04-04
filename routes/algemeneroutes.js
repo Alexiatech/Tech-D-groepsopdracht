@@ -1,3 +1,4 @@
+// INLADEN PACKAGES EN MODULES
 const express = require('express');
 const router = express.Router();
 const path = require('path');
@@ -5,7 +6,7 @@ const path = require('path');
 
 
 
-// Middleware om CSS-bestanden te serveren met het juiste MIME-type
+// MIDDELWARE OM CSS TE SERVEREN MET JUISTE MIME-TYPE
 router.use('/static/styles', express.static(path.join(__dirname, '../static/styles'), {
   setHeaders: (res) => {
     res.setHeader('Content-Type', 'text/css');
@@ -15,4 +16,5 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
 
 
 
+// ROUTER EXPORTEREN
 module.exports = router;

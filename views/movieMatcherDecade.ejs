@@ -1,73 +1,63 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/movieMatcher.css">
-    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
     <title>Decades</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="/styles/movieMatcher.css">
+
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
         <a href="/moviematcher/genre"><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
         <h1>Choose decade</h1>
     </header>
 
-    <!-- Main body -->
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
+
     <section class="mainBody">
-        <!-- Explanation text -->
+
+        <!-- VRAAG 2 -->
         <section class="explanationText">
             <h2>2/3 What kind of decade should your movie come from?</h2>
         </section>
 
-        <!-- Decade selector -->
+        <!-- FORM -->
         <section>
             <form method="POST" action="/moviematcher/submit?from=decade">
-            <ul class="columnList">
-                <li><input type="checkbox" id="2020-now" name="decadePicker" value="2020-now">
-                    <label for="2020-now">2020-now</label></li>
-
-                <li><input type="checkbox" id="2010-2020" name="decadePicker" value="2010-2020">
-                    <label for="2010-2020">2010-2020</label></li>
-
-                <li><input type="checkbox" id="2000-2010" name="decadePicker" value="2000-2010">
-                    <label for="2000-2010">2000-2010</label></li>
-
-                <li><input type="checkbox" id="1990-2000" name="decadePicker" value="1990-2000">
-                    <label for="1990-2000">1990-2000</label></li>
-
-                <li><input type="checkbox" id="1980-1990" name="decadePicker" value="1980-1990">
-                    <label for="1980-1990">1980-1990</label></li>
-
-                <li><input type="checkbox" id="1970-1980" name="decadePicker" value="1970-1980">
-                    <label for="1970-1980">1970-1980</label></li>
-            </ul>
+                <ul class="columnList">
+                    <li><input type="checkbox" id="2020-now" name="decadePicker" value="2020-now">
+                        <label for="2020-now">2020-now</label></li>
+                    <li><input type="checkbox" id="2010-2020" name="decadePicker" value="2010-2020">
+                        <label for="2010-2020">2010-2020</label></li>
+                    <li><input type="checkbox" id="2000-2010" name="decadePicker" value="2000-2010">
+                        <label for="2000-2010">2000-2010</label></li>
+                    <li><input type="checkbox" id="1990-2000" name="decadePicker" value="1990-2000">
+                        <label for="1990-2000">1990-2000</label></li>
+                    <li><input type="checkbox" id="1980-1990" name="decadePicker" value="1980-1990">
+                        <label for="1980-1990">1980-1990</label></li>
+                    <li><input type="checkbox" id="1970-1980" name="decadePicker" value="1970-1980">
+                        <label for="1970-1980">1970-1980</label></li>
+                </ul>
+                <section class="nextButton">
+                    <button type="submit">Continue</button>
+                </section>
+            </form>
         </section>
 
-        <!-- Continue button -->
-        <section class="nextButton">
-            <button type="submit">Continue</button>
-        </section>
-    </form>
     </section>
 
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="/"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
-                <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-selected.svg" alt="search"></a>
-                    <div class="selected"></div>
-                </li>
-                <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-                <li>
-                    <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-                </li>
-            </ul>
-        </nav>
-    </footer>
 </body>
 
 </html>
