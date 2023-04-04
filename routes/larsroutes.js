@@ -22,6 +22,9 @@ router.get('/likes/:username', async (req, res) => {
   res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
 });
 
+
+
+
 // Delete movies route
 router.post('/deleteMovie/:username', async (req, res) => {
   const db = client.db('Moviemates');
@@ -53,6 +56,8 @@ router.post('/deleteMovie/:username', async (req, res) => {
     res.status(500).send('Er is een fout opgetreden bij het verwijderen van de film van de lijst met favorieten.');
   }
 });
+
+
 
 
 // export router module

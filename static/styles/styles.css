@@ -62,7 +62,7 @@ button {
     /* dit is de menu color */
 
     /* borders */
-    --input-field-border: solid 0.4em var(--border-color);
+    --input-field-border: solid 2px var(--border-color);
     /* dit is de border voor input fields */
     --movie-border: solid 0.4em var(--border-color);
     /* dit is de border voor de movies */

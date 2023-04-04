@@ -3,12 +3,19 @@ const router = express.Router();
 const path = require('path');
 const { client } = require('../server');
 
+
+
+
+
 // Middleware om CSS-bestanden te serveren met het juiste MIME-type
 router.use('/static/styles', express.static(path.join(__dirname, '../static/styles'), {
   setHeaders: (res) => {
     res.setHeader('Content-Type', 'text/css');
   }
 }));
+
+
+
 
 // MOVIEMATCHER ROUTE
 
@@ -25,6 +32,9 @@ router.get('/moviematcher/decade', (req, res) => {
 router.get('/moviematcher/language', (req, res) => {
   res.render('movieMatcherLanguage', { title: 'Homepage' });
 });
+
+
+
 
 router.post('/moviematcher/submit', (req, res) => {
   const selectedGenres = req.body.genrePicker || req.session.selectedGenres;
@@ -49,6 +59,9 @@ router.post('/moviematcher/submit', (req, res) => {
     res.redirect('/moviematcher/result?from=language');
   }
 });
+
+
+
 
 router.get('/moviematcher/result', async (req, res) => {
 
@@ -78,6 +91,9 @@ console.log("Movies:", movies);
 
   res.render('moviematcherResult', { movies });
 });
+
+
+
 
 module.exports = router;
 
