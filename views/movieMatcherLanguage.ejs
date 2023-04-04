@@ -1,70 +1,64 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/movieMatcher.css">
-    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
     <title>Language</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="/styles/movieMatcher.css">
+
 </head>
+
 <body>
+
+    <!-- HEADER -->
     <header>
         <a href="/moviematcher/genre"><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
         <h1>Choose Language</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="/"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
-            <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-selected.svg" alt="search"></a>
-                <div class="selected"></div>
-            </li>
-            <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-            <li>
-                <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-            </li>
-        </ul>
-    </nav>
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
 
-    <!-- Main body -->
+    <!-- 'MAIN' -->
     <section class="mainBody">
-        <!-- Explanation text -->
+
+        <!-- VRAAG 2 -->
         <section class="explanationText">
             <h2>2/2 Language preference:</h2>
         </section>
 
-        <!-- Language selector -->
+        <!-- FORM -->
         <section>
             <form method="POST" action="/moviematcher/submit?from=language">
-            <ul class="columnList">
-            <li><input type="checkbox" id="english" name="languagePicker" value="English">
-            <label for="english">English</label></li>
-
-            <li><input type="checkbox" id="spanish" name="languagePicker" value="spanish" disabled>
-            <label for="spanish">Spanish</label></li>
-
-            <li><input type="checkbox" id="french" name="languagePicker" value="french" disabled>
-            <label for="french">French</label></li>
-
-            <li><input type="checkbox" id="german" name="languagePicker" value="german" disabled>
-            <label for="german">German</label></li>
-
-            <li><input type="checkbox" id="dutch" name="languagePicker" value="Dutch">
-            <label for="dutch">Dutch</label></li>
-
-            <li><input type="checkbox" id="swedish" name="languagePicker" value="swedish" disabled>
-            <label for="swedish">Swedish</label></li>
-            </ul>
+                <ul class="columnList">
+                <li><input type="checkbox" id="english" name="languagePicker" value="English">
+                <label for="english">English</label></li>
+                <li><input type="checkbox" id="spanish" name="languagePicker" value="spanish" disabled>
+                <label for="spanish">Spanish</label></li>
+                <li><input type="checkbox" id="french" name="languagePicker" value="french" disabled>
+                <label for="french">French</label></li>
+                <li><input type="checkbox" id="german" name="languagePicker" value="german" disabled>
+                <label for="german">German</label></li>
+                <li><input type="checkbox" id="dutch" name="languagePicker" value="Dutch">
+                <label for="dutch">Dutch</label></li>
+                <li><input type="checkbox" id="swedish" name="languagePicker" value="swedish" disabled>
+                <label for="swedish">Swedish</label></li>
+                </ul>
+                <section class="nextButton">
+                    <button type="submit">Continue</button>
+                </section>
+            </form>
         </section>
 
-        <!-- Continue button -->
-        <section class="nextButton">
-            <button type="submit">Continue</button>
-        </section>
-    </form>
     </section>
 
-    <footer></footer>
 </body>
+
 </html>
