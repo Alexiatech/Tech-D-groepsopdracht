@@ -65,7 +65,8 @@ router.post('/submit', async (req, res) => {
           city: City,
           email: email,
           dateOfBirth: birthday,
-        }
+          Likes: []
+        };
 
         console.log(userdata);
         await moviesUser.insertOne(userdata);
