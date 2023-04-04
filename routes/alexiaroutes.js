@@ -44,6 +44,8 @@ router.get('/register', (req, res) => {
 
 // registreren voor de website
 router.post('/submit', async (req, res) => {
+  
+      const userName = req.body.Username;
       const firstName = req.body.Firstname;
       const lastName = req.body.Lastname;
       const birthday = req.body.birthday;
@@ -59,6 +61,7 @@ router.post('/submit', async (req, res) => {
       const hashedPassword = await bcrypt.hash(password, 10);
 
         const userdata = {
+          Username: userName,
           Firstname: firstName,
           Lastname: lastName,
           password: hashedPassword,
