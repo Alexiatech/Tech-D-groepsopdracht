@@ -29,7 +29,8 @@
     <main>
         <section>
             <h1>MovieMatch</h1>
-            <a href="/views/likedMovies.ejs" alt=""><img src="/uploads/images/home/stertransparant.png" alt="opgeslagen films bekijken"></a>
+            <a href="/views/likedMovies.ejs" alt=""><img src="/uploads/images/home/stertransparant.png"
+                    alt="opgeslagen films bekijken"></a>
             <div class="lijn"></div>
         </section>
         <section>
@@ -58,60 +59,65 @@
             <!-- Deze ongeordende lijst bevat de filmitems -->
             <ul class="film-list">
                 <!-- Controleer of savedMovies leeg is -->
-                <% if (savedMovies.length === 0) { %>
-                <li>
-                    <!-- Toon de afbeelding als er geen opgeslagen films zijn -->
-                    <img src="/uploads/images/addmovies.jpg" alt="No movies added yet" class="no-movies-image">
-                </li>
-                <% } else { %>
-                <% savedMovies.forEach((savedMovie) => { %>
-                <!-- Elk filmitem heeft de klasse 'film-item' -->
-                <li class="film-item">
-                    <a href="/movie/<%= savedMovie._id %>">
-                        <!-- Toon de filmafbeelding met de klasse 'film-image' -->
-                        <img src="/uploads/images/films/<%= savedMovie.Imgurl %>" alt="<%= savedMovie.Title %>"
-                            class="film-image">
-                        <!-- De klasse 'film-info' bevat de filmtitel en releasedatum -->
-                        <figcaption class="film-info">
-                            <!-- Toon de filmtitel met de klasse 'film-title' -->
-                            <h3 class="film-title"><%= savedMovie.Title %></h3>
-                        </figcaption>
-                    </a>
-                </li>
-                <% }) %>
-                <% } %>
+                <% if (data.length===0) { %>
+                    <li>
+                        <!-- Toon de afbeelding als er geen opgeslagen films zijn -->
+                        <img src="/uploads/images/addmovies.jpg" alt="No movies added yet" class="no-movies-image">
+                    </li>
+                    <% } else { %>
+                        <% data.forEach((likedMovies)=> { %>
+                            <!-- Elk filmitem heeft de klasse 'film-item' -->
+                            <li class="film-item">
+                                <a href="/movie/<%= likedMovies._id %>">
+                                    <!-- Toon de filmafbeelding met de klasse 'film-image' -->
+                                    <img src="/uploads/images/films/<%= likedMovies.Imgurl %>"
+                                        alt="<%= likedMovies.Title %>" class="film-image">
+                                    <!-- De klasse 'film-info' bevat de filmtitel en releasedatum -->
+                                    <figcaption class="film-info">
+                                        <!-- Toon de filmtitel met de klasse 'film-title' -->
+                                        <h3 class="film-title">
+                                            <%= likedMovies.Title %>
+                                        </h3>
+                                    </figcaption>
+                                </a>
+                            </li>
+                            <% }) %>
+                                <% } %>
             </ul>
         </section>
 
         <!-- FILMS -->
         <section class="filminlijst">
             <!-- Deze sectie toont de films per genre -->
-            <% ['Action', 'Cartoon', 'Horror', 'Sport'].forEach((genre, index) => { %>
-            <h2><%= genre %> movies</h2>
-            <ul class="film-list">
-                <!-- Deze ongeordende lijst bevat de filmitems per genre -->
-                <% const movies = [actionMovies, cartoonMovies, horrorMovies, sportMovies][index]; %>
-                <% movies.forEach((movie) => { %>
-                <!-- Elk filmitem heeft de klasse 'film-item' -->
-                <li class="film-item">
+            <% ['Action', 'Cartoon' , 'Horror' , 'Sport' ].forEach((genre, index)=> { %>
+                <h2>
+                    <%= genre %> movies
+                </h2>
+                <ul class="film-list">
+                    <!-- Deze ongeordende lijst bevat de filmitems per genre -->
+                    <% const movies=[actionMovies, cartoonMovies, horrorMovies, sportMovies][index]; %>
+                        <% movies.forEach((movie)=> { %>
+                            <!-- Elk filmitem heeft de klasse 'film-item' -->
+                            <li class="film-item">
 
-                    <a href="/movie/<%= movie._id %>">
-                        <!-- Toon de filmafbeelding met de klasse 'film-image' -->
-                        <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>"
-                            class="film-image">
-                        <!-- De klasse 'film-info' bevat de filmtitel -->
-                        <figcaption class="film-info">
-                            <!-- Toon de filmtitel met de klasse 'film-title' -->
-                            <h3 class="film-title"><%= movie.Title %></h3>
-                        </figcaption>
-                    </a>
-                </li>
+                                <a href="/movie/<%= movie._id %>">
+                                    <!-- Toon de filmafbeelding met de klasse 'film-image' -->
+                                    <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>"
+                                        class="film-image">
+                                    <!-- De klasse 'film-info' bevat de filmtitel -->
+                                    <figcaption class="film-info">
+                                        <!-- Toon de filmtitel met de klasse 'film-title' -->
+                                        <h3 class="film-title">
+                                            <%= movie.Title %>
+                                        </h3>
+                                    </figcaption>
+                                </a>
+                            </li>
+                            <% }) %>
+                </ul>
                 <% }) %>
-            </ul>
-            <% }) %>
         </section>
     </main>
-    <script src="/scripts/savedMovies.js"></script>
 </body>
 
 </html>

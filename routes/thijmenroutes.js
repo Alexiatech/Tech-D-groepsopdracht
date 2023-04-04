@@ -62,7 +62,7 @@ async function getMoviesByGenre(genre) {
 //** HOME.EJS ROUTES **/
 
 // Definieer een router.get() methode die luistert naar GET-verzoeken op het root-pad ('/')
-router.get('/', async (req, res) => {
+router.get('/home/:username', async (req, res) => {
   try {
     // Roep de 'getMoviesByGenre' functie aan voor elk genre en sla de resultaten op in constante variabelen
     const actionMovies = await getMoviesByGenre("Action");
@@ -70,17 +70,29 @@ router.get('/', async (req, res) => {
     const horrorMovies = await getMoviesByGenre("Horror");
     const sportMovies = await getMoviesByGenre("Sport");
 
-    // Verkrijg de fetch instantie met behulp van de 'getFetch' functie
-    const fetchInstance = await getFetch();
-    // Voer een GET-verzoek uit naar de '/saved-movies' endpoint en sla het resultaat op in 'savedMoviesResponse'
-    const savedMoviesResponse = await fetchInstance('http://localhost:4000/saved-movies');
-    // Converteer het antwoord naar JSON en sla het op in 'savedMovies'
-    const savedMovies = await savedMoviesResponse.json();
+    // // Verkrijg de fetch instantie met behulp van de 'getFetch' functie
+    // const fetchInstance = await getFetch();
+    // // Voer een GET-verzoek uit naar de '/saved-movies' endpoint en sla het resultaat op in 'savedMoviesResponse'
+    // const savedMoviesResponse = await fetchInstance('http://localhost:4000/saved-movies');
+    // // Converteer het antwoord naar JSON en sla het op in 'savedMovies'
+    // const savedMovies = await savedMoviesResponse.json();
+
+    const db = client.db('Moviemates');
+    const user = parseInt(req.params.username);
+    const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
+    const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
+
+    //loop om alle films uit de array te halen
+    for (let i = 0; i < likedMovies.length; i++) {
+      const movie = likedMovies[i];
+      console.log(likedMovies[0]);
+    }
+
 
     // Rendert de 'home' view met de opgegeven gegevens
     res.render('home', {
       title: 'Homepage', // Geef de titel door aan de view
-      savedMovies: savedMovies, // Geef de opgeslagen films door aan de view
+      data: likedMovies, // Geef de opgeslagen films door aan de view
       actionMovies, // Geef de actiefilms door aan de view
       cartoonMovies, // Geef de tekenfilms door aan de view
       horrorMovies, // Geef de horrorfilms door aan de view
