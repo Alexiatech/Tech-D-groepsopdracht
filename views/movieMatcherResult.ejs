@@ -39,9 +39,11 @@
             <ul class="rowList">
                     <% movies.forEach(function(movies) { %>
                         <li>
+                            <a href="/movie/<%= movies._id %>">
                             <div class="matchedMovie">
                                 <img src="/uploads/images/films/<%= movies.Imgurl %>">
                             </div>
+                            </a>
                         </li>
                     <% }); %>
             </ul>
