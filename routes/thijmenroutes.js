@@ -49,7 +49,7 @@ async function getMoviesByGenre(genre) {
 
 
 // HOME GET
-router.get('/home/:username', async (req, res) => {
+router.get('/:username', async (req, res) => {
 
   try { // Roep de 'getMoviesByGenre' functie aan voor elk genre en sla de resultaten op in constante variabelen
     

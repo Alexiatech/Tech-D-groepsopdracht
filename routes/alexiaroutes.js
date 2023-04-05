@@ -21,11 +21,11 @@ router.use('/static/styles', express.static(path.join(__dirname, '../static/styl
 
 
 // SESSION
-router.use(session({
-  secret: 'gwzauj27y36478i3uejfjeh73ye',
-  resave: false,
-  saveUninitialized: true
-}));
+// router.use(session({
+//   secret: 'gwzauj27y36478i3uejfjeh73ye',
+//   resave: false,
+//   saveUninitialized: true
+// }));
 
 
 
@@ -33,7 +33,7 @@ router.use(session({
 // ROUTES
 const moviesUser = client.db('Moviemates').collection('Users');
 
-router.get('/', (req, res) => {
+router.get('/signup', (req, res) => {
   res.render('signup', { title: 'sign in'});
 });
 
@@ -57,55 +57,85 @@ router.post('/submit', async (req, res) => {
     const password = req.body.password;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-      const userdata = {
-        Username: userName,
-        Firstname: firstName,
-        Lastname: lastName,
-        Phonenumber: Phonenumber,
-        password: hashedPassword,
-        city: City,
-        email: email,
-        dateOfBirth: birthday,
-        Likes: []
-      };
+    const userdata = {
+      Username: userName,
+      Firstname: firstName,
+      Lastname: lastName,
+      Phonenumber: Phonenumber,
+      password: hashedPassword,
+      city: City,
+      email: email,
+      dateOfBirth: birthday,
+      Likes: []
+    };
 
-      console.log(userdata);
-      await moviesUser.insertOne(userdata);
+    console.log(userdata);
+    await moviesUser.insertOne(userdata);
 
-      req.session.user = userdata;
+    // req.session.user = userdata;
 
-      res.redirect('/');
+    res.redirect('/profile');
     
   });
 
 
-    
 
+
+  // SIGN UP POST
+  // router.post('/login', async (req, res) => {
+
+  //   const emailSignin = req.body.emailsign;
+  //   const passwordSignin = req.body.passwordsign;
+
+  //   console.log(moviesUser)
+  
+  //   const user = await moviesUser.findOne({ email: emailSignin });
+  
+  //   if (!user) {
+  //     return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+  //   }
+  
+  //   const isMatch = await bcrypt.compare(passwordSignin, user.pwd);
+  
+  //   if (!isMatch) {
+  //     return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+  //   }
+  
+  //   req.session.user = user;
+  //   res.redirect('/home');
+    
+  // });
 
   // SIGN UP POST
   router.post('/login', async (req, res) => {
 
-    const emailSignin = req.body.emailsign;
-    const passwordSignin = req.body.passwordsign;
-
-    console.log(moviesUser)
+    const email = req.body.emailsign;
+    const password = req.body.passwordsign;
+    const user = await moviesUser.findOne({ email });
   
-    const user = await moviesUser.findOne({ email: emailSignin });
+    console.log(user);
   
     if (!user) {
-      return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+  
+    console.log("test2")
+    return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
     }
   
-    const isMatch = await bcrypt.compare(passwordSignin, user.pwd);
+    const isMatch = await bcrypt.compare(password, user.password);
   
     if (!isMatch) {
-      return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+  
+    console.log("test1")
+    return res.render('signup', { title: 'sign in', error: 'Invalid email or password' });
+    
     }
   
-    req.session.user = user;
-    res.redirect('/home');
-    
-  });
+    if (isMatch){
+  
+    res.redirect('/profile');
+    console.log("test");
+  
+    }});
     
 
 

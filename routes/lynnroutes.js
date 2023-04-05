@@ -21,6 +21,7 @@ router.post('/profile', async (req, res) => {
 	console.log(req.body);
 
 	const {
+		Username,
 		Firstname, 
 		Lastname,
 		dateOfBirth, 
@@ -36,6 +37,7 @@ router.post('/profile', async (req, res) => {
 
 	await collection.findOneAndUpdate({}, {
 		$set: {
+			Username: Username,
 			Firstname: Firstname, 
 			Lastname: Lastname,
 			dateOfBirth: dateOfBirth, 
@@ -59,10 +61,14 @@ router.get('/profile', onProfile);
 async function onProfile(req, res) { 
 
 	const collection = client.db('Moviemates').collection('Users'); 
-	const profile = await collection.findOne({}); 
+	const profile = await collection
+	.find()
+	.sort({ _id: -1 })
+	.limit(1)
+	.toArray();
 
 	res.render('profile', {
-		profile    
+		profile: profile[0]
 	});
 };
 
@@ -75,10 +81,14 @@ router.get('/editProfile', editProfile);
 async function editProfile(req, res) {
 
 	const collection = client.db('Moviemates').collection('Users'); 
-	const profile = await collection.findOne(); 
+	const profile = await collection
+	.find()
+	.sort({ _id: -1 })
+	.limit(1)
+	.toArray();
 
 	res.render('editProfile', { 
-		profile    
+		profile: profile[0]
 	});
 };
 
