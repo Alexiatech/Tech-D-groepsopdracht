@@ -11,7 +11,8 @@ const path = require('path');
 router.get('/likes/:username', async (req, res) => {
 
   const db = client.db('Moviemates');
-  const user = parseInt(req.params.username);
+  req.session.gebruikersnaam = req.params.username;
+  const user = req.params.username;
   const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
   const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
 
@@ -20,7 +21,7 @@ router.get('/likes/:username', async (req, res) => {
     console.log(likedMovies[0]);
   }
 
-  res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
+  res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username, user });
 });
 
 

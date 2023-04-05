@@ -50,12 +50,15 @@ async function getMoviesByGenre(genre) {
 
 // HOME GET
 router.get('/home/:username', async (req, res) => {
-  try { // Roep de 'getMoviesByGenre' functie aan voor elk genre en sla de resultaten op in constante variabelen
 
+  try { // Roep de 'getMoviesByGenre' functie aan voor elk genre en sla de resultaten op in constante variabelen
+    
     const actionMovies = await getMoviesByGenre('Action');
     const cartoonMovies = await getMoviesByGenre('Cartoon');
     const horrorMovies = await getMoviesByGenre('Horror');
     const sportMovies = await getMoviesByGenre('Sport');
+    req.session.gebruikersnaam = req.params.username;
+
     const db = client.db('Moviemates');
     const user = req.params.username;
     const account = await db.collection('Users').find({ Username: user }).toArray();
@@ -74,6 +77,7 @@ router.get('/home/:username', async (req, res) => {
       cartoonMovies, // Geef de tekenfilms door aan de view
       horrorMovies, // Geef de horrorfilms door aan de view
       sportMovies, // Geef de sportfilms door aan de view
+      user,
       Firstname: userFirstname
     });
   } catch (error) {
@@ -86,13 +90,15 @@ router.get('/home/:username', async (req, res) => {
 
 // MOVIEPAGE GET
 router.get('/movie/:id', async (req, res) => {
+  const user = req.session.gebruikersnaam;
   try {
 
     const collection = client.db('Moviemates').collection('Movies'); // Verkrijg de 'Movies'-collectie uit de 'Moviemates'-database
     const movie = await collection.findOne({ _id: new ObjectId(req.params.id) }); // Zoek naar de film in de collectie met een overeenkomend '_id'-veld 
     // en zet het ObjectId van de route-parameter om naar een ObjectId type
 
-    res.render('moviePage', { title: movie.Title, movie }); // Render de 'moviePage' view met de gevonden film en stel de titel in op de filmtitel
+    res.render('moviePage', { title: movie.Title, movie, user }); // Render de 'moviePage' view met de gevonden film en stel de titel in op de filmtitel
+
   } catch (error) {
     console.error('Error while rendering moviePage: ', error); // Als er een fout optreedt tijdens het renderen van de moviePage, log dan de fout in de console
   }
@@ -151,9 +157,9 @@ router.get('/saved-movies', async (req, res) => {
 router.post('/toggle-movie/:movieId', async (req, res) => {
 
   const movieId = req.params.movieId; // Haal de movieId uit de route-parameters
+  const user = req.session.gebruikersnaam;
   const movie = await client.db('Moviemates').collection('Movies').findOne({ _id: new ObjectId(movieId) });
-  const account = await client.db('Moviemates').collection('Users').find({ Username: 'Larsvv' }).toArray();
-  const user = 'Larsvv';
+  const account = await client.db('Moviemates').collection('Users').find({ Username: user }).toArray();
 
   console.log(account[0].Likes);
 
