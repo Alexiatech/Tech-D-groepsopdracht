@@ -39,7 +39,7 @@ Before you install the `MovieMates`, make sure to install:
 * Type `node --version` the check if node is installed correctly
 > You'll recieve the what type of version you installed like:`v18.8.0` 
 ### [MongoDB](https://www.mongodb.com/blog)
-`AANPASSEN ZODRA WE EEN DATABASE STRUCTUUR HEBBEN`
+
 * Before you can start MovieMates you'll need to create a database with multiple collections. I use [MongoDB](https://www.mongodb.com/blog) to save up the data (information) for this application. Follow the steps underneath, you can also follow this [tutorial](https://www.mongodb.com/docs/atlas/getting-started/):
 1. Create a cluster, i would recommend you to use the name cluster0
 2. Create a database, choose your own name
