@@ -46,6 +46,8 @@
         <!-- PROFILE GEGEVENS -->
         <section>
             <form action="/profile" method="POST">
+                <label>Username *</label>
+                <input placeholder="Fill in..." type="text" name="Username" value="<%= profile.Username %>" class="input-value" pattern="[A-Za-z]+" title="Only letters allowed" required>
                 <label>First name *</label>
                 <input placeholder="Fill in..." type="text" name="Firstname" value="<%= profile.Firstname %>" class="input-value" pattern="[A-Za-z]+" title="Only letters allowed" required>
                 <label>Last name *</label>
