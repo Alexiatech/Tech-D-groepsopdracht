@@ -62,11 +62,18 @@ router.post('/moviematcher/submit', (req, res) => {
 // MOVIEMATCHER RESULT GET
 router.get('/moviematcher/result', async (req, res) => {
 
-  const selectedGenres = req.session.selectedGenres; // Retrieve the selected genres, decades, and languages from session variables
-  const selectedLanguages = req.session.selectedLanguages; // Retrieve the selected genres, decades, and languages from session variables
+  const selectedGenres = req.session.selectedGenres; // Retrieve the selected genres, and languages from session variables
+  const selectedLanguages = req.session.selectedLanguages;
   const moviesCollection = client.db('Moviemates').collection('Movies'); // Get the movies collection
   const genresArray = Array.isArray(selectedGenres) ? selectedGenres : [selectedGenres]; // const decadesArray = Array.isArray(selectedDecades) ? selectedDecades : [selectedDecades];
   const languagesArray = Array.isArray(selectedLanguages) ? selectedLanguages : [selectedLanguages];
+
+  const profileCollection = client.db('Moviemates').collection('Users'); 
+	const profile = await profileCollection
+		.find()
+		.sort({ _id: -1 })
+		.limit(1)
+		.toArray();
 
   const movies = await moviesCollection.find({
     $and: [
@@ -80,7 +87,7 @@ router.get('/moviematcher/result', async (req, res) => {
   console.log("Genres Array:", genresArray);
   console.log("Movies:", movies);
 
-  res.render('moviematcherResult', { movies });
+  res.render('moviematcherResult', { movies, profile: profile[0] });
 });
 
 
