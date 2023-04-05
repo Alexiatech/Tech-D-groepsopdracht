@@ -7,11 +7,11 @@
     <!-- HEAD PARTIAL -->
     <%- include('head-partial') %>
 
-    <!-- TITLE -->
-    <title>MovieMatcher</title>
+        <!-- TITLE -->
+        <title>MovieMatcher</title>
 
-    <!-- STYLES -->
-    <link rel="stylesheet" type="text/css" href="/styles/liked.css">
+        <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href="/styles/liked.css">
 
 </head>
 
@@ -20,28 +20,31 @@
     <!-- NAV PARTIAL -->
     <%- include('menu-partial') %>
 
-    <!-- MOVIES YOU LIKED -->
-    <section>
-        <a href="/Larsvv" alt=""><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
-        <h1>Movies you liked</h1>
-        <a href="/home/<%= username %>" alt=""><img src="/uploads/images/icons/arrow.png" alt="opgeslagen films bekijken"></a>
-        <img src="/uploads/images/home/stergevuld.png" alt="opgeslagen films bekijken">
-    </section>
+        <!-- MOVIES YOU LIKED -->
+        <section>
+            <a href="/<%= user %>" alt=""><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
+            <h1>Movies you liked</h1>
+            <a href="/home/<%= username %>" alt=""><img src="/uploads/images/icons/arrow.png"
+                    alt="opgeslagen films bekijken"></a>
+            <img src="/uploads/images/home/stergevuld.png" alt="opgeslagen films bekijken">
+        </section>
 
-    <!-- VERWIJDER MOVIES -->
-    <section>
-        <form method="POST" action="/deleteMovie/<%= username %>">
-            <fieldset>
-                <% data.forEach(function(likedMovies) { %>
-                    <input type="checkbox" id="<%= likedMovies._id%>" name="movie" value="<%= likedMovies.Title %>">
-                    <label for="<%= likedMovies._id %>"><img src="/uploads/images/films/<%= likedMovies.Imgurl %>">
-                        <h4> <%= likedMovies.Title %> </h4>
-                    </label>
-                    <% }); %>
-            </fieldset>
-            <input type="submit" value="Delete" class="mainbutton">
-        </form>
-    </section>
+        <!-- VERWIJDER MOVIES -->
+        <section>
+            <form method="POST" action="/deleteMovie/<%= username %>">
+                <fieldset>
+                    <% data.forEach(function(likedMovies) { %>
+                        <input type="checkbox" id="<%= likedMovies._id%>" name="movie" value="<%= likedMovies.Title %>">
+                        <label for="<%= likedMovies._id %>"><img src="/uploads/images/films/<%= likedMovies.Imgurl %>">
+                            <h4>
+                                <%= likedMovies.Title %>
+                            </h4>
+                        </label>
+                        <% }); %>
+                </fieldset>
+                <input type="submit" value="Delete" class="mainbutton">
+            </form>
+        </section>
 </body>
 
 </html>
