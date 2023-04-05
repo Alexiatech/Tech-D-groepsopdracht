@@ -16,6 +16,8 @@ router.get('/likes/:username', async (req, res) => {
   const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
   const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
 
+  console.log(user);
+
   for (let i = 0; i < likedMovies.length; i++) {
     const movie = likedMovies[i];
     console.log(likedMovies[0]);
