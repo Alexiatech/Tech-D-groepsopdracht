@@ -7,14 +7,16 @@
     <!-- HEAD PARTIAL -->
     <%- include('head-partial') %>
 
-    <!-- TITLE -->
-    <title><%= title %></title>
+        <!-- TITLE -->
+        <title>
+            <%= title %>
+        </title>
 
-    <!-- SCRIPTS -->
-    <script defer src="/scripts/moviePage.js"></script>
+        <!-- SCRIPTS -->
+        <script defer src="/scripts/moviePage.js"></script>
 
-    <!-- STYLES -->
-    <link rel="stylesheet" type="text/css" href="/styles/moviePage.css">
+        <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href="/styles/moviePage.css">
 
 </head>
 
@@ -23,60 +25,68 @@
     <!-- NAV PARTIAL -->
     <%- include('menu-partial') %>
 
-    <!-- MAIN -->
-    <main>
+        <!-- MAIN -->
+        <main>
 
-        <!-- MOVIE TITEL -->
-        <section>
-            <a href="/home/Larsvv" alt=""><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
-            <h1><%= movie.Title %></h1>
-        </section>
+            <!-- MOVIE TITEL -->
+            <section>
+                <a href="/home/<%= user %>" alt=""><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
+                <h1>
+                    <%= movie.Title %>
+                </h1>
+            </section>
 
-        <!-- MOVIE BEOORDELING -->
-        <section>
-            <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>">
-            <div class="beoordelingssterren" id="beoordelingsSterren">
-                <input type="radio" name="beoordeling" id="bs0" checked><label for="bs0"></label>
-                <input type="radio" name="beoordeling" id="bs1"><label for="bs1"></label>
-                <input type="radio" name="beoordeling" id="bs2"><label for="bs2"></label>
-                <input type="radio" name="beoordeling" id="bs3"><label for="bs3"></label>
-                <input type="radio" name="beoordeling" id="bs4"><label for="bs4"></label>
-                <input type="radio" name="beoordeling" id="bs5"><label for="bs5"></label>
-                <span class="beoordelingsaantal"></span>
-            </div>
-            <h2>Description</h2>
-            <div class="description">
-                <p><%= movie.Description.split('\n')[0] %></p>
-                <a href="#" class="read-more">Lees meer</a>
-                <p class="more-text">
-                    <% movie.Description.split('\n').slice(1).forEach((line) => { %>
-                    <%= line %><br>
-                    <% }) %>
-                </p>
-                <a href="#" class="read-less" style="display:none;">Lees minder</a>
-                <div class="genre-buttons">
-                    <button class="genre-button"><%= movie.Genre %></button>
-                    <% movie.Language.forEach((language) => { %>
-                    <button class="genre-button"><%= language %></button>
-                    <% }) %>
+            <!-- MOVIE BEOORDELING -->
+            <section>
+                <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>">
+                <div class="beoordelingssterren" id="beoordelingsSterren">
+                    <input type="radio" name="beoordeling" id="bs0" checked><label for="bs0"></label>
+                    <input type="radio" name="beoordeling" id="bs1"><label for="bs1"></label>
+                    <input type="radio" name="beoordeling" id="bs2"><label for="bs2"></label>
+                    <input type="radio" name="beoordeling" id="bs3"><label for="bs3"></label>
+                    <input type="radio" name="beoordeling" id="bs4"><label for="bs4"></label>
+                    <input type="radio" name="beoordeling" id="bs5"><label for="bs5"></label>
+                    <span class="beoordelingsaantal"></span>
                 </div>
-            </div>
-        </section>
+                <h2>Description</h2>
+                <div class="description">
+                    <p>
+                        <%= movie.Description.split('\n')[0] %>
+                    </p>
+                    <a href="#" class="read-more">Lees meer</a>
+                    <p class="more-text">
+                        <% movie.Description.split('\n').slice(1).forEach((line)=> { %>
+                            <%= line %><br>
+                                <% }) %>
+                    </p>
+                    <a href="#" class="read-less" style="display:none;">Lees minder</a>
+                    <div class="genre-buttons">
+                        <button class="genre-button">
+                            <%= movie.Genre %>
+                        </button>
+                        <% movie.Language.forEach((language)=> { %>
+                            <button class="genre-button">
+                                <%= language %>
+                            </button>
+                            <% }) %>
+                    </div>
+                </div>
+            </section>
 
-        <!-- MOVIE PLAY BUTTON + SAVE BUTTON -->
-        <section>
-            <div class="custom-buttons">
-                <a href="#" class="button play-movie">
-                    <span>PLAY MOVIE</span>
-                </a>
-                <button class="button add-to-movies" data-id="<%= movie._id.toString() %>">
-                    <img src="/uploads/images/home/stertransparant.png" alt="Ster opslaan">
-                    <span>ADD TO 'MOVIES YOU LIKE'</span>
-                </button>
-            </div>
-        </section>
+            <!-- MOVIE PLAY BUTTON + SAVE BUTTON -->
+            <section>
+                <div class="custom-buttons">
+                    <a href="#" class="button play-movie">
+                        <span>PLAY MOVIE</span>
+                    </a>
+                    <button class="button add-to-movies" data-id="<%= movie._id.toString() %>">
+                        <img src="/uploads/images/home/stertransparant.png" alt="Ster opslaan">
+                        <span>ADD TO 'MOVIES YOU LIKE'</span>
+                    </button>
+                </div>
+            </section>
 
-    </main>
+        </main>
 
 </body>
 
