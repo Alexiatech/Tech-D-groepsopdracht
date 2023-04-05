@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/moviePage.css">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
 </head>
 
 <body>
@@ -16,7 +18,8 @@
                 <li><a href="/"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
                     <div class="selected"></div>
                 </li>
-                <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-gray.svg" alt="search"></a></li>
+                <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-gray.svg"
+                            alt="search"></a></li>
                 <li><a href="/"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
                 <li>
                     <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
@@ -27,9 +30,12 @@
     <main>
         <section>
             <!-- Toont de filmtitel -->
-            <h1><%= movie.Title %></h1>
+            <h1>
+                <%= movie.Title %>
+            </h1>
             <!-- Navigatie link naar de hoofdpagina -->
-            <a href="/" alt=""><img src="/uploads/images/moviePage/pijlwit.png" alt="opgeslagen films bekijken"></a>
+            <a href="/home/<%= user %>" alt=""><img src="/uploads/images/moviePage/pijlwit.png"
+                    alt="opgeslagen films bekijken"></a>
             <!-- Visuele scheiding tussen secties -->
             <div class="lijn"></div>
         </section>
@@ -53,26 +59,32 @@
             <h2>Description</h2>
             <!-- Toont het eerste deel van de filmbeschrijving -->
             <div class="description">
-                <p><%= movie.Description.split('\n')[0] %></p>
+                <p>
+                    <%= movie.Description.split('\n')[0] %>
+                </p>
                 <!-- Link om de rest van de beschrijving te tonen -->
                 <a href="#" class="read-more">Lees meer</a>
                 <!-- Extra beschrijvingstekst die verborgen is totdat er op 'Lees meer' wordt geklikt -->
                 <p class="more-text">
                     <!-- Ga door de rest van de beschrijving en toon elke regel -->
-                    <% movie.Description.split('\n').slice(1).forEach((line) => { %>
-                    <%= line %><br>
-                    <% }) %>
+                    <% movie.Description.split('\n').slice(1).forEach((line)=> { %>
+                        <%= line %><br>
+                            <% }) %>
                 </p>
                 <!-- Link om de extra beschrijvingstekst te verbergen -->
                 <a href="#" class="read-less" style="display:none;">Lees minder</a>
                 <!-- Container voor de genre- en taalknoppen -->
                 <div class="genre-buttons">
                     <!-- Toont de genre van de film -->
-                    <button class="genre-button"><%= movie.Genre %></button>
+                    <button class="genre-button">
+                        <%= movie.Genre %>
+                    </button>
                     <!-- Gaat door de talen van de film en toont ze als knoppen -->
-                    <% movie.Language.forEach((language) => { %>
-                    <button class="genre-button"><%= language %></button>
-                    <% }) %>
+                    <% movie.Language.forEach((language)=> { %>
+                        <button class="genre-button">
+                            <%= language %>
+                        </button>
+                        <% }) %>
                 </div>
             </div>
         </section>

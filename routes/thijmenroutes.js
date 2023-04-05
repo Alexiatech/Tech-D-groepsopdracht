@@ -72,6 +72,7 @@ router.get('/home/:username', async (req, res) => {
     const cartoonMovies = await getMoviesByGenre("Cartoon");
     const horrorMovies = await getMoviesByGenre("Horror");
     const sportMovies = await getMoviesByGenre("Sport");
+    req.session.gebruikersnaam = req.params.username;
     const db = client.db('Moviemates');
     const user = req.params.username;
     const account = await db.collection('Users').find({ Username: user }).toArray();
@@ -93,6 +94,7 @@ router.get('/home/:username', async (req, res) => {
       cartoonMovies, // Geef de tekenfilms door aan de view
       horrorMovies, // Geef de horrorfilms door aan de view
       sportMovies, // Geef de sportfilms door aan de view
+      user,
       Firstname: userFirstname
     });
   } catch (error) {
@@ -108,6 +110,7 @@ router.get('/home/:username', async (req, res) => {
 
 // Definieer een GET-route voor '/movie/:id', waarbij ':id' een route-parameter is die het ID van de film vertegenwoordigt
 router.get('/movie/:id', async (req, res) => {
+  const user = req.session.gebruikersnaam;
   try {
     // Verkrijg de 'Movies'-collectie uit de 'Moviemates'-database
     const collection = client.db("Moviemates").collection("Movies");
@@ -116,7 +119,7 @@ router.get('/movie/:id', async (req, res) => {
     const movie = await collection.findOne({ _id: new ObjectId(req.params.id) });
 
     // Render de 'moviePage' view met de gevonden film en stel de titel in op de filmtitel
-    res.render('moviePage', { title: movie.Title, movie });
+    res.render('moviePage', { title: movie.Title, movie, user });
   } catch (error) {
     // Als er een fout optreedt tijdens het renderen van de moviePage, log dan de fout in de console
     console.error("Error while rendering moviePage: ", error);
@@ -194,9 +197,9 @@ router.get('/saved-movies', async (req, res) => {
 router.post('/toggle-movie/:movieId', async (req, res) => {
   // Haal de movieId uit de route-parameters
   const movieId = req.params.movieId;
+  const user = req.session.gebruikersnaam;
   const movie = await client.db('Moviemates').collection('Movies').findOne({ _id: new ObjectId(movieId) });
-  const account = await client.db('Moviemates').collection('Users').find({ Username: 'Larsvv' }).toArray();
-  const user = 'Larsvv';
+  const account = await client.db('Moviemates').collection('Users').find({ Username: user }).toArray();
 
   console.log(account[0].Likes);
 
