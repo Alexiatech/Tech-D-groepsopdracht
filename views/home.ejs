@@ -1,113 +1,79 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
     <title>MovieMatcher</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+
 </head>
 
 <body>
-    <header>
-        <!-- Begin van de navigatiebalk -->
-        <nav>
-            <ul>
-                <!-- Navigatie menu-items met bijbehorende afbeeldingen -->
-                <li><a href="/"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
-                    <div class="selected"></div>
-                </li>
-                <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-gray.svg"
-                            alt="search"></a></li>
-                <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-                <li>
-                    <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
+
+    <!-- MAIN -->
     <main>
+
+        <!-- HEADER -->
         <section>
             <h1>MovieMatch</h1>
-            <a href="/likes/<%= user %>" alt=""><img src="/uploads/images/home/stertransparant.png"
-                    alt="opgeslagen films bekijken"></a>
+            <a href="/likes/<%= user %>" alt=""><img src="/uploads/images/home/stertransparant.png" alt="opgeslagen films bekijken"></a>
             <div class="lijn"></div>
         </section>
+
+        <!-- ZOEK FILM -->
         <section>
-            <!-- Zoekbalk -->
-            <!-- Begin van de zoekbalk -->
             <div class="zoek-box">
-                <!-- Een invoerveld voor het zoeken naar films -->
-                <input class="zoek-invoer" type="text" placeholder="Zoek jouw film...">
-                <!-- Een knop om de zoekactie te starten -->
-                <button class="zoek-knop"><i class="fas fa-search"></i></button>
+                <input class="zoek-invoer" type="text" placeholder="Zoek jouw film..."> 
+                <button class="zoek-knop"><i class="fas fa-search"></i></button> 
             </div>
-
-            <!-- Welkom gebruiker -->
-            <p><span>Welcome <%= Firstname %> </span></p>
-
-
-            <!-- Moviematch Button -->
-            <a href="/moviematcher/genre"><button class="moviematchbtn"><span>NO
-                        INSPIRATION?</span><br><span>Try our movie matcher</span></button></a>
+            <p><span>Welcome <%= Firstname %> </span></p> 
+            <a href="/moviematcher/genre"><button class="moviematchbtn"><span>NO INSPIRATION?</span><br><span>Try our movie matcher</span></button></a> 
         </section>
 
-        <!-- Opgeslagen films -->
-        <!-- Deze sectie toont de opgeslagen films -->
-        <section class="opgeslagenfilms">
+        <!-- OPGESLAGEN FILMS -->
+        <section class="opgeslagenfilms"> 
             <h2>Movies you liked</h2>
-            <!-- Deze ongeordende lijst bevat de filmitems -->
             <ul class="film-list">
-                <!-- Controleer of savedMovies leeg is -->
                 <% if (data.length===0) { %>
                     <li>
-                        <!-- Toon de afbeelding als er geen opgeslagen films zijn -->
                         <img src="/uploads/images/addmovies.jpg" alt="No movies added yet" class="no-movies-image">
                     </li>
                     <% } else { %>
-                        <% data.forEach((likedMovies)=> { %>
-                            <!-- Elk filmitem heeft de klasse 'film-item' -->
-                            <li class="film-item">
-                                <a href="/movie/<%= likedMovies._id %>">
-                                    <!-- Toon de filmafbeelding met de klasse 'film-image' -->
-                                    <img src="/uploads/images/films/<%= likedMovies.Imgurl %>"
-                                        alt="<%= likedMovies.Title %>" class="film-image">
-                                    <!-- De klasse 'film-info' bevat de filmtitel en releasedatum -->
-                                    <figcaption class="film-info">
-                                        <!-- Toon de filmtitel met de klasse 'film-title' -->
-                                        <h3 class="film-title">
-                                            <%= likedMovies.Title %>
-                                        </h3>
-                                    </figcaption>
-                                </a>
-                            </li>
-                            <% }) %>
-                                <% } %>
+                      <% data.forEach((likedMovies)=> { %>
+                      <li class="film-item">
+                      <a href="/movie/<%= likedMovies._id %>">
+                          <img src="/uploads/images/films/<%= likedMovies.Imgurl %>" alt="<%= likedMovies.Title %>" class="film-image">
+                          <figcaption class="film-info"><h3 class="film-title"><%= likedMovies.Title %></h3></figcaption>
+                      </a>
+                 </li>
+                 <% }) %>
+                 <% } %>
             </ul>
         </section>
 
-        <!-- FILMS -->
+        <!-- FILMS IN LIJST -->
         <section class="filminlijst">
-            <!-- Deze sectie toont de films per genre -->
             <% ['Action', 'Cartoon' , 'Horror' , 'Sport' ].forEach((genre, index)=> { %>
-                <h2>
-                    <%= genre %> movies
-                </h2>
+                <h2><%= genre %> movies</h2>
                 <ul class="film-list">
-                    <!-- Deze ongeordende lijst bevat de filmitems per genre -->
                     <% const movies=[actionMovies, cartoonMovies, horrorMovies, sportMovies][index]; %>
                         <% movies.forEach((movie)=> { %>
                             <!-- Elk filmitem heeft de klasse 'film-item' -->
                             <li class="film-item">
-
                                 <a href="/movie/<%= movie._id %>">
-                                    <!-- Toon de filmafbeelding met de klasse 'film-image' -->
                                     <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>"
                                         class="film-image">
-                                    <!-- De klasse 'film-info' bevat de filmtitel -->
                                     <figcaption class="film-info">
-                                        <!-- Toon de filmtitel met de klasse 'film-title' -->
                                         <h3 class="film-title">
                                             <%= movie.Title %>
                                         </h3>
@@ -118,7 +84,9 @@
                 </ul>
                 <% }) %>
         </section>
+
     </main>
+
 </body>
 
 </html>

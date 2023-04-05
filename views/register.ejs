@@ -1,34 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
 <head>
-    <link href="/styles/styles.css" rel="stylesheet">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
+    <title>MovieMatch - Register</title>
+
+    <!-- STYLES -->
     <link href="/styles/register.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moviematch</title>
+
 </head>
 
+    <!-- BODY -->
+    <body>
 
-<body class="regIster">
-    <a href="/"><img src="/uploads/images/icons/arrow.png" alt="log in"></a>
+        <header>
+            <a href="/"><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
+            <h1>Create an account</h1>
+        </header>
 
-    <h1>Create an account</h1>
+        <section class="regIster">
+            <form action="/submit" method="POST" class="form-container">
+                <label>Username *</label>
+                <input id="username" name="Username" required type="text" placeholder="Fill in...">
+                <label>First name *</label>
+                <input id="name" name="Firstname" required type="text" placeholder="Fill in...">
+                <label>Last name *</label>
+                <input id="name" name="Lastname" required type="text" placeholder="Fill in...">
+                <label>Phone number *</label>
+                <input id="phone" name="Phonenumber" required type="number" placeholder="Fill in...">
+                <label>Date of birth *</label>
+                <input id="birthday" name="birthday" type="date" placeholder="Fill in...">
+                <label>Email *</label>
+                <input id="email" name="email" required type="email" placeholder="Fill in...">
+                <label>City *</label>
+                <input id="city " name="city" required type="city" placeholder="Fill in...">
+                <label>Password *</label>
+                <input id="password" name="password" type="password" placeholder="Fill in...">
+                <label>Confirm password *</label>
+                <input id="password2" name="password2" type="password" placeholder="Fill in..." maxlength="10">
+                <button type="submit">Sign up</button>
+                <p>Already have an account?<a href="/"> Sign in</a></p>
+            </form>
+        </section>
 
-    <form action="/submit" method="POST" class="form-container">
-        <input id="username" name="Username" required type="text" placeholder="Username*">
-        <input id="name" name="Firstname" required type="text" placeholder="First Name*">
-        <input id="name" name="Lastname" required type="text" placeholder="Last Name*">
-        <input id="phone" name="Phonenumber" required type="number" placeholder="Phonenumber*">
-        <input id="birthday" name="birthday" type="date" placeholder="Date of birth*">
-        <input id="email" name="email" required type="email" placeholder="Email*">
-        <input id="city " name="city" required type="city" placeholder="City*">
-
-
-        <input id="password" name="password" type="password" placeholder="Password*">
-        <input id="password2" name="password2" type="password" placeholder="Comfirm password*">
-        <button type="submit">Sign up</button>
-    </form>
-
-    <p>Have an account?<a href="/">Sign in</a></p>
-</body>
+    </body>
 
 </html>

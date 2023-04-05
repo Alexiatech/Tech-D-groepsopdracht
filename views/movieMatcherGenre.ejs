@@ -1,92 +1,81 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/movieMatcher.css">
-    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
     <title>Genre</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="/styles/movieMatcher.css">
+
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
-        <a href="/"><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
         <h1>Choose genre</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="/"><img src="/uploads/images/logos_footer/home-gray.svg" alt="home"></a></li>
-            <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-selected.svg" alt="search"></a>
-                <div class="selected"></div>
-            </li>
-            <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-            <li>
-                <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-            </li>
-        </ul>
-    </nav>
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
 
-    <!-- Main body -->
+    <!-- 'MAIN' -->
     <section class="mainBody">
+
+        <!-- VRAAG 1 -->
         <section class="explanationText">
-            <h2>1/2 What genre are you in the mood for right now?</h2>
+            <h2>1/2 What genre are you in the <br> mood for right now?</h2>
         </section>
 
-        <!-- Genre selector -->
+        <!-- FORM -->
         <section>
             <form method="POST" action="/moviematcher/submit?from=genre">
-            <ul class="rowList">
-                <li><input type="checkbox" id="horror" name="genrePicker[]" value="Horror">
-                    <label for="horror">Horror</label>
-                </li>
-
-                <li><input type="checkbox" id="romance" name="genrePicker[]" value="Romance" disabled>
-                    <label for="romance">Romance</label>
-                </li>
-
-                <li><input type="checkbox" id="thriller" name="genrePicker[]" value="Thriller">
-                    <label for="thriller">Thriller</label>
-                </li>
-
-                <li><input type="checkbox" id="comedy" name="genrePicker[]" value="Comedy" disabled>
-                    <label for="comedy">Comedy</label>
-                </li>
-
-                <li><input type="checkbox" id="drama" name="genrePicker[]" value="Drama" disabled>
-                    <label for="drama">Drama</label>
-                </li>
-
-                <li><input type="checkbox" id="kids" name="genrePicker[]" value="Kids" disabled>
-                    <label for="kids">Kids</label>
-                </li>
-
-                <li><input type="checkbox" id="action" name="genrePicker[]" value="Action">
-                    <label for="action">Action</label>
-                </li>
-
-                <li><input type="checkbox" id="anime" name="genrePicker[]" value="Anime" disabled>
-                    <label for="anime">Anime</label>
-                </li>
-
-                <li><input type="checkbox" id="family" name="genrePicker[]" value="Family" disabled>
-                    <label for="family">Family</label>
-                </li>
-
-                <li><input type="checkbox" id="sport" name="genrePicker[]" value="Sport">
-                    <label for="sport">Sports</label>
-                </li>
-            </ul>
+                <ul class="rowList">
+                    <li><input type="checkbox" id="horror" name="genrePicker[]" value="Horror">
+                        <label for="horror">Horror</label>
+                    </li>
+                    <li><input type="checkbox" id="romance" name="genrePicker[]" value="Romance" disabled>
+                        <label for="romance">Romance</label>
+                    </li>
+                    <li><input type="checkbox" id="thriller" name="genrePicker[]" value="Thriller">
+                        <label for="thriller">Thriller</label>
+                    </li>
+                    <li><input type="checkbox" id="comedy" name="genrePicker[]" value="Comedy" disabled>
+                        <label for="comedy">Comedy</label>
+                    </li>
+                    <li><input type="checkbox" id="drama" name="genrePicker[]" value="Drama" disabled>
+                        <label for="drama">Drama</label>
+                    </li>
+                    <li><input type="checkbox" id="kids" name="genrePicker[]" value="Kids" disabled>
+                        <label for="kids">Kids</label>
+                    </li>
+                    <li><input type="checkbox" id="action" name="genrePicker[]" value="Action">
+                        <label for="action">Action</label>
+                    </li>
+                    <li><input type="checkbox" id="anime" name="genrePicker[]" value="Anime" disabled>
+                        <label for="anime">Anime</label>
+                    </li>
+                    <li><input type="checkbox" id="family" name="genrePicker[]" value="Family" disabled>
+                        <label for="family">Family</label>
+                    </li>
+                    <li><input type="checkbox" id="sport" name="genrePicker[]" value="Sport">
+                        <label for="sport">Sports</label>
+                    </li>
+                </ul>
+                <section class="nextButton">
+                    <button type="submit">Continue</button>
+                </section>
+            </form>
         </section>
 
-        <!-- Continue button -->
-        <section class="nextButton">
-            <button type="submit">Continue</button>
-        </section>
-    </form>
     </section>
+    
 </body>
 
 </html> 

@@ -1,54 +1,45 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
+    <title>MovieMatcher</title>
+
+    <!-- STYLES -->
     <link rel="stylesheet" type="text/css" href="/styles/liked.css">
 
-    <title>MovieMatcher</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/"><img src="/uploads/images/logos_footer/home-selected.svg" alt="home"></a>
-                    <div class="selected"></div>
-                </li>
-                <li><a href="/moviematcher/genre"><img src="/uploads/images/logos_footer/search-gray.svg"
-                            alt="search"></a></li>
-                <li><a href="#"><img src="/uploads/images/logos_footer/chat-gray.svg" alt="chat"></a></li>
-                <li>
-                    <a href="/profile"><img src="/uploads/images/logos_footer/profile-gray.svg" alt="profile"></a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+
+    <!-- NAV PARTIAL -->
+    <%- include('menu-partial') %>
+
+    <!-- MOVIES YOU LIKED -->
     <section>
+        <a href="/home/Larsvv" alt=""><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
         <h1>Movies you liked</h1>
-        <a href="/home/<%= username %>" alt=""><img src="/uploads/images/icons/arrow.png"
-                alt="opgeslagen films bekijken"></a>
+        <a href="/home/<%= username %>" alt=""><img src="/uploads/images/icons/arrow.png" alt="opgeslagen films bekijken"></a>
         <img src="/uploads/images/home/stergevuld.png" alt="opgeslagen films bekijken">
-        <div class="lijn"></div>
     </section>
 
+    <!-- VERWIJDER MOVIES -->
     <section>
         <form method="POST" action="/deleteMovie/<%= username %>">
             <fieldset>
                 <% data.forEach(function(likedMovies) { %>
                     <input type="checkbox" id="<%= likedMovies._id%>" name="movie" value="<%= likedMovies.Title %>">
                     <label for="<%= likedMovies._id %>"><img src="/uploads/images/films/<%= likedMovies.Imgurl %>">
-                        <h4>
-                            <%= likedMovies.Title %>
-                        </h4>
+                        <h4> <%= likedMovies.Title %> </h4>
                     </label>
                     <% }); %>
             </fieldset>
             <input type="submit" value="Delete" class="mainbutton">
-
         </form>
     </section>
 </body>

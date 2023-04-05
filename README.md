@@ -39,45 +39,55 @@ Before you install the `MovieMates`, make sure to install:
 * Type `node --version` the check if node is installed correctly
 > You'll recieve the what type of version you installed like:`v18.8.0` 
 ### [MongoDB](https://www.mongodb.com/blog)
-`AANPASSEN ZODRA WE EEN DATABASE STRUCTUUR HEBBEN`
+
 * Before you can start MovieMates you'll need to create a database with multiple collections. I use [MongoDB](https://www.mongodb.com/blog) to save up the data (information) for this application. Follow the steps underneath, you can also follow this [tutorial](https://www.mongodb.com/docs/atlas/getting-started/):
 1. Create a cluster, i would recommend you to use the name cluster0
 2. Create a database, choose your own name
-3. Then you'll create the first collection called: `"DataFilms"`. In this collection we will store the information about the movies that we render in our application. Use the following template to set up your collection:
+3. Then you'll create the first collection called: `"Movies"`. In this collection we will store the information about the movies that we render in our application. Use the following template to set up your collection:
 >  Using the correct names given in this tutorial, for the `collection` is super important!
 
 | 'Field' (input)| 'Value' (input)| 
 | ------------- |:-------------:|
 | _ID (Automatic generated) | Random number made by mongoDB |
 | title: | (You can put any title name here) | 
-| episodes: | (You can put the amount of episodes here) | 
-| release: | (You can put the release year (date) here | 
 | descriptions: | (You can put any descriptions here) | 
-| photo: | (example: "onepiece.jpg") | 
-| ID: | (I recommend you to use number like: 1,2,3....) | 
+| genre: | (Make sure to use the genre: Action, Sports, Animation & Horror) | 
+| language: | (You can put any language here) |
+| Imgurl: | (example: "Thegodfather.jpg") Make sure this matched with the name of the photo in the static map | 
 
 ```
-4. add atleast `4 different items` into your collection `DataFilms`
+4. add atleast `4 different movies` for each genre: Action, Sports, Animation & Horror into your collection `Movies`
 ```
-
-5. Then you'll create the second collection called: `"savedFilms"`. In this collection we will store the information about the movies that the user wants to save.
+5. Then you'll create the second collection called: `"Users"`. In this collection we will store the information about the user and the specific movies this user saved. 
 >  Using the correct names given in this tutorial, for the `collection` is super important!
+
+| 'Field' (input)| 'Value' (input)| 
+| ------------- |:-------------:|
+| _ID (Automatic generated) | Random number made by mongoDB |
+| Username: | (value) | 
+| Firstname: | (value) | 
+| Lastname: | (value) | 
+| Phonenumber: | (value) | 
+| Password: | (value) | 
+| City: | (value) | 
+| email: | (value) | 
+| DateOfBirth: | (value) | 
+| Likes: | (value) | 
+
 ### [env.](https://www.codementor.io/@parthibakumarmurugesan/what-is-env-how-to-set-up-and-run-a-env-file-in-node-1pnyxw9yxj)
 * Once you have created the databases you'll need to create an .env in the root of the folder you work from, for this application. This .env file should contain one variable.
 ```
-MONGO_PASSWORD=yourpassword
+ DB_CONNECTION_STRING=mongodb+srv://thijmen:FCdkI91K5ePdjZ1h@cluster0.x9618m8.mongodb.net/?retryWrites=true&w=majority
 ```
-
+We added the connection string from our MongoDB Database and filled in our unique login credentials in the MongoDB Database enviorment.
 
 ### App-installation:
 
-`AANPASSEN ZODRA WE KLAAR ZIJN`
-
-Clone my respository to your local device:
+Clone our respository to your local device:
 
 ```
 
-git clone https://github.com/MrSmarto/BLOKTECH23
+git clone (https://github.com/Alexiatech/Tech-D-groepsopdracht.git)
 
 ```
 
@@ -87,11 +97,11 @@ When you cloned this repository, created a replica of the database and added the
 * Type `npm --version` the check if node is installed correctly
 
 ### [Open your terminal](https://support.apple.com/nl-nl/guide/terminal/welcome/mac)
-* In the terminal you type: `npm start` to start [node.js](https://nodejs.org/en/) server, which will start the Anime Smart on the web.
+* In the terminal you type: `npm start` to start [node.js](https://nodejs.org/en/) server, which will start the MovieMatcher on the web.
 * The website should be visible with the link underneath:
 ```
 
-http://localhost:1900/
+http://localhost:4000/
 
 ```
 
@@ -111,7 +121,3 @@ We're using a [MIT LICENSE](https://github.com/cmda-bt/pt-course-22-23/blob/main
 
 ![anime-boy](https://user-images.githubusercontent.com/118122875/225022156-18510eaa-ec17-457e-8e8a-1bc5418d985c.gif)
 
-
-
-Thijmen test
-Youri Test

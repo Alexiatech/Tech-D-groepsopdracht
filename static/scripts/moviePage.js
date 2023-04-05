@@ -46,6 +46,9 @@ readMoreBtn.addEventListener('click', (e) => {
     readLessBtn.style.display = 'block';
 });
 
+
+
+
 // Update de 'click' eventlistener voor readLessBtn
 readLessBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -126,8 +129,6 @@ function updateToggleButton(saved) {
 
 
 
-
-
 //** Functie om de opgeslagen status van een film te wijzigen **/
 
 // Definieer een asynchronische functie genaamd 'toggleSavedMovie' die een 'movieId' als parameter accepteert
@@ -149,8 +150,6 @@ async function toggleSavedMovie(movieId) {
         return false;
     }
 }
-
-
 
 
 

@@ -12,7 +12,11 @@ function showPosition(pos) {
 	console.log(pos.coords) // Toon de coördinaten van de locatie in de console
 
 	document.querySelector ( // Verberg het 4e label in het formulier in de sectie van de hoofdpagina
-		'main section form label:nth-of-type(4)'
+		'main section:nth-of-type(2) form label:nth-of-type(4)'
+	).style.display = 'none'
+
+	document.querySelector ( // Verberg het 4e input in het formulier in de sectie van de hoofdpagina
+		'main section:nth-of-type(2) form input:nth-of-type(4)'
 	).style.display = 'none'
 
 	const map = L.map('map').setView ( // Maak een nieuwe Leaflet kaart aan met de coördinaten van de huidige locatie

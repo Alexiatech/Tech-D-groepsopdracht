@@ -1,34 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
 <head>
-    <link href="/styles/styles.css" rel="stylesheet">
+
+    <!-- HEAD PARTIAL -->
+    <%- include('head-partial') %>
+
+    <!-- TITLE -->
+    <title>MovieMatch - Sign Up</title>
+
+    <!-- STYLES -->
     <link href="/styles/signup.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moviematch</title>
+
 </head>
 
+    <!-- BODY -->
+    <body>
 
-<body class="signIn">
-    <img src="/uploads/images/icons/back.png" alt="log in">
+        <header>
+            <img src="/uploads/images/icons/back.png" alt="log in">
+        </header>
 
-    <h1>MovieMatch</h1>
-    <p>An all new streaming service
-        with a selection of the best movies.</p>
-
-    <section class="logIn">
+        <section class="logIn">
+        <h1>MovieMatch</h1>
+        <p>An all new streaming service with a selection of the best movies.</p>
         <form action="/login" method="POST">
             <input type="email" id="email" name="emailsign" placeholder="Email*">
             <input id="password" type="password" name="passwordsign" placeholder="Password*">
             <a href="">Forgot your password?</a>
             <button type="submit">Sign in</button>
         </form>
-
-        <p>Don’t have an account yet?<a href="/register">Sign up</a></p>
-    </section>
-    
-
-
-
-</body>
+        <p>Don’t have an account yet?<a href="/register"> Sign up</a></p>
+        </section>
+    </body>
 
 </html>

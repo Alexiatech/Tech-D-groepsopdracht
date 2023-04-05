@@ -1,3 +1,4 @@
+// INLADEN PACKAGES EN MODULES
 const { client } = require('../server');
 const express = require('express');
 const router = express.Router();
@@ -5,7 +6,8 @@ const path = require('path');
 
 
 
-// Liked pagina route
+
+// LIKES GET
 router.get('/likes/:username', async (req, res) => {
 
   const db = client.db('Moviemates');
@@ -14,7 +16,6 @@ router.get('/likes/:username', async (req, res) => {
   const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
   const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes } }).toArray();
 
-  //loop om alle films uit de array te halen
   for (let i = 0; i < likedMovies.length; i++) {
     const movie = likedMovies[i];
     console.log(likedMovies[0]);
@@ -26,10 +27,11 @@ router.get('/likes/:username', async (req, res) => {
 
 
 
-// Delete movies route
+// DELETE MOVIES POST
 router.post('/deleteMovie/:username', async (req, res) => {
+  
   const db = client.db('Moviemates');
-  let titles = req.body.movie; // veronderstel dat dit een array is van titels die verwijderd moeten worden
+  let titles = req.body.movie; 
   const user = req.params.username;
   const account = await db.collection('Users').find({ Username: req.params.username }).toArray();
   const likedMovies = await db.collection('Movies').find({ Title: { $in: account[0].Likes.filter((title) => !titles.includes(title)) } }).toArray();
@@ -50,7 +52,6 @@ router.post('/deleteMovie/:username', async (req, res) => {
 
   try {
     await db.collection('Users').updateOne({ Username: user }, query);
-
     res.render('likedMovies', { title: 'Likes', data: likedMovies, username: account[0].Username });
   } catch (err) {
     console.error(err);
@@ -61,7 +62,7 @@ router.post('/deleteMovie/:username', async (req, res) => {
 
 
 
-// export router module
+// ROUTER EXPORTEREN
 module.exports = router;
 
 
