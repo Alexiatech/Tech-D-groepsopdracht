@@ -26,7 +26,7 @@
         <!-- HEADER -->
         <section>
             <h1>MovieMatch</h1>
-            <a href="/likes/<%= user %>" alt=""><img src="/uploads/images/home/stertransparant.png" alt="opgeslagen films bekijken"></a>
+            <a href="/likes/<%= user %>" alt=""><img class="lazy" src="/uploads/images/home/stertransparant.png" alt="opgeslagen films bekijken"></a>
             <div class="lijn"></div>
         </section>
 
@@ -46,13 +46,13 @@
             <ul class="film-list">
                 <% if (data.length===0) { %>
                     <li>
-                        <img src="/uploads/images/addmovies.jpg" alt="No movies added yet" class="no-movies-image">
+                        <img src="/uploads/images/addmovies.jpg" alt="No movies added yet" class="no-movies-image lazy">
                     </li>
                     <% } else { %>
                     <% data.forEach((likedMovies)=> { %>
                     <li class="film-item">
                     <a href="/movie/<%= likedMovies._id %>">
-                        <img src="/uploads/images/films/<%= likedMovies.Imgurl %>" alt="<%= likedMovies.Title %>" class="film-image">
+                        <img src="/uploads/images/films/<%= likedMovies.Imgurl %>" alt="<%= likedMovies.Title %>" class="film-image lazy">
                         <figcaption class="film-info"><h3 class="film-title"><%= likedMovies.Title %></h3></figcaption>
                     </a>
                 </li>
@@ -71,7 +71,7 @@
                         <li class="film-item">
                             <a href="/movie/<%= movie._id %>">
                                 <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>"
-                                    class="film-image">
+                                    class="film-image lazy">
                                 <figcaption class="film-info">
                                     <h3 class="film-title">
                                         <%= movie.Title %>
