@@ -118,6 +118,3 @@ http://localhost:4000/
 ## ![licence](https://user-images.githubusercontent.com/118122875/224570185-da93d583-8c14-4eee-bca6-f680ec919fc2.png) License
 
 We're using a [MIT LICENSE](https://github.com/cmda-bt/pt-course-22-23/blob/main/LICENSE).
-
-![anime-boy](https://user-images.githubusercontent.com/118122875/225022156-18510eaa-ec17-457e-8e8a-1bc5418d985c.gif)
-
