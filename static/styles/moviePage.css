@@ -324,5 +324,6 @@ section:nth-of-type(2) h2 {
 }
 
 .add-to-movies.saved {
-    color: var(--color-4);
+    color: var(--color-2);
+    background-color: white;
 }
