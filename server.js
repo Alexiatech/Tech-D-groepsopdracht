@@ -4,6 +4,7 @@ const app = express();
 const port = 4000;
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const compression = require('compression');
 
 
 
@@ -28,6 +29,7 @@ app.listen(PORT, console.log(`Running on port: ${PORT}`));
 // middleware
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
 require('dotenv').config({ path: '.env' });
 
 

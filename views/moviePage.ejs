@@ -30,7 +30,7 @@
 
             <!-- MOVIE TITEL -->
             <section>
-                <a href="/<%= user %>" alt=""><img src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
+                <a href="/<%= user %>" alt=""><img class="lazy" src="/uploads/images/profilePage/go-back.svg" alt="go-back"></a>
                 <h1>
                     <%= movie.Title %>
                 </h1>
@@ -38,7 +38,7 @@
 
             <!-- MOVIE BEOORDELING -->
             <section>
-                <img src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>">
+                <img class="lazy" src="/uploads/images/films/<%= movie.Imgurl %>" alt="<%= movie.Title %>">
                 <div class="beoordelingssterren" id="beoordelingsSterren">
                     <input type="radio" name="beoordeling" id="bs0" checked><label for="bs0"></label>
                     <input type="radio" name="beoordeling" id="bs1"><label for="bs1"></label>
@@ -80,7 +80,7 @@
                         <span>PLAY MOVIE</span>
                     </a>
                     <button class="button add-to-movies" data-id="<%= movie._id.toString() %>">
-                        <img src="/uploads/images/home/stertransparant.png" alt="Ster opslaan">
+                        <img class="lazy" src="/uploads/images/home/stertransparant.png" alt="Ster opslaan">
                         <span>ADD TO 'MOVIES YOU LIKE'</span>
                     </button>
                 </div>
